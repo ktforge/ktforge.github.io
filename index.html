@@ -4,42 +4,21 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>KT Forge – Professional After Effects Scripts & Plugins</title>
+    <title>KT Forge – Professional After Effects Scripts & Plugins</title>
 
     <!-- SEO & Social -->
-    <meta
-      name="description"
-      content="Professional After Effects scripts and workflow‑boosting plugins from KT Forge. Transform tedious tasks into one‑click solutions."
-    />
-    <meta
-      name="keywords"
-      content="After Effects scripts, AE plugins, motion graphics tools, workflow automation, Layer Flow"
-    />
-    <meta
-      property="og:title"
-      content="KT Forge – Professional After Effects Tools"
-    />
-    <meta
-      property="og:description"
-      content="Discover Layer Flow and upcoming audio‑sync plugins that super‑charge your creative workflow."
-    />
+    <meta name="description" content="Professional After Effects scripts and workflow‑boosting plugins from KT Forge. Transform tedious tasks into one‑click solutions." />
+    <meta name="keywords" content="After Effects scripts, AE plugins, motion graphics tools, workflow automation, Layer Flow" />
+    <meta property="og:title" content="KT Forge – Professional After Effects Tools" />
+    <meta property="og:description" content="Discover Layer Flow and upcoming audio‑sync plugins that super‑charge your creative workflow." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://ktforge.com" />
 
     <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet" />
 
     <!-- Font Awesome (icons) -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-      integrity="sha512-yH0M6B7n4TLVPBVFgbi3luiK+zd4TKxFBf/6VoyX5ulpSHiD/7QEi8k8x4D4Apq9uSA0KvyuAuy7u65arE2TWA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-yH0M6B7n4TLVPBVFgbi3luiK+zd4TKxFBf/6VoyX5ulpSHiD/7QEi8k8x4D4Apq9uSA0KvyuAuy7u65arE2TWA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
       /* ---------------------------
@@ -162,15 +141,9 @@
         border-radius: 50%;
       }
 
-      .red {
-        background: #ff5f56;
-      }
-      .yellow {
-        background: #ffbd2e;
-      }
-      .green {
-        background: #27c93f;
-      }
+      .red { background: #ff5f56; }
+      .yellow { background: #ffbd2e; }
+      .green { background: #27c93f; }
 
       /* code area */
       .window-content {
@@ -192,7 +165,11 @@
         -webkit-background-clip: text;
         color: transparent;
         margin-bottom: 1.2rem;
-        letter-spacing: 1px;
+        /* Reduce letter‑spacing so the Y renders cleanly */
+        letter-spacing: 0.5px;
+        /* Prevent sub‑pixel distortion on some browsers */
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
       }
 
       .window-content p {
@@ -329,27 +306,6 @@
         cursor: not-allowed;
       }
 
-      .product-links {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-      }
-
-      .cta-secondary {
-        display: inline-block;
-        padding: 10px 24px;
-        border-radius: 4px;
-        border: 1px solid var(--accent);
-        color: var(--accent);
-        font-weight: 600;
-        transition: background 0.25s, color 0.25s;
-      }
-
-      .cta-secondary:hover {
-        background: var(--accent);
-        color: #0d1117;
-      }
-
       /* ---------------------------
          ABOUT
       --------------------------- */
@@ -419,14 +375,6 @@
         .nav-links {
           display: none; /* hide for now – replace with hamburger if desired */
         }
-        
-        .product-links {
-          flex-direction: column;
-        }
-        
-        .product-links a {
-          text-align: center;
-        }
       }
     </style>
   </head>
@@ -454,21 +402,9 @@
           <span class="circle green"></span>
         </div>
         <div class="window-content">
-          <h1>
-            Layer&nbsp;Flow&nbsp;<span
-              style="font-size: 0.5em; vertical-align: middle"
-              >v1.0</span
-            >
-          </h1>
-          <p>
-            40+ functions that super‑charge your After Effects layer workflow.
-          </p>
-          <a
-            href="https://ktforge.etsy.com/listing/4310156467/layer-flow-professional-after-effects"
-            target="_blank"
-            class="cta-primary"
-            >Buy on Etsy</a
-          >
+          <h1>Layer&nbsp;Flow&nbsp;<span style="font-size:0.5em;vertical-align:middle;">v1.0</span></h1>
+          <p>40+ functions that super‑charge your After Effects layer workflow.</p>
+          <a href="https://ktforge.etsy.com/listing/4310156467/layer-flow-professional-after-effects" target="_blank" class="cta-primary">Buy on Etsy</a>
         </div>
       </div>
     </section>
@@ -478,14 +414,12 @@
       <div class="container">
         <h2>Our Professional Tools</h2>
         <div class="products-grid">
+
           <!-- Layer Flow -->
           <div class="product-card featured">
-            <span class="tag">Available Now</span>
-            <h3>Layer Flow v1.0</h3>
-            <p>
-              40+ smart utilities for copy‑paste, colour, keyframes & batch
-              operations.
-            </p>
+            <span class="tag">Available Now</span>
+            <h3>Layer Flow v1.0</h3>
+            <p>40+ smart utilities for copy‑paste, colour, keyframes & batch operations.</p>
             <ul class="product-features">
               <li>Smart Copy & Paste</li>
               <li>Intelligent Pre‑Comp</li>
@@ -493,52 +427,35 @@
               <li>Keyframe Automation</li>
               <li>Batch Layer Creation</li>
             </ul>
-            <div class="product-links">
-              <a
-                href="https://ktforge.etsy.com/listing/4310156467/layer-flow-professional-after-effects"
-                target="_blank"
-                class="cta-button"
-                >Buy on Etsy</a
-              >
-              <a
-                href="https://layerflow.shop"
-                target="_blank"
-                class="cta-secondary"
-                >Learn More</a
-              >
-            </div>
+            <a href="https://ktforge.etsy.com/listing/4310156467/layer-flow-professional-after-effects" target="_blank" class="cta-button">View on Etsy</a>
           </div>
 
           <!-- BPM Audio Detector -->
           <div class="product-card coming-soon">
-            <span class="tag">Coming Soon</span>
-            <h3>BPM Audio Detector</h3>
-            <p>
-              Automatic BPM detection and marker placement for perfect sync.
-            </p>
+            <span class="tag">Coming Soon</span>
+            <h3>BPM Audio Detector</h3>
+            <p>Automatic BPM detection and marker placement for perfect sync.</p>
             <ul class="product-features">
               <li>Automatic BPM Analysis</li>
               <li>Smart Marker Grid</li>
               <li>Tempo‑change Detection</li>
             </ul>
-            <span class="cta-button disabled">Coming Soon</span>
+            <span class="cta-button disabled">Coming Soon</span>
           </div>
 
           <!-- Beat Detection Plugin -->
           <div class="product-card coming-soon">
-            <span class="tag">In Development</span>
-            <h3>Beat Detection Plugin</h3>
-            <p>
-              C++ plugin for real‑time transient detection & sample‑accurate
-              markers.
-            </p>
+            <span class="tag">In Development</span>
+            <h3>Beat Detection Plugin</h3>
+            <p>C++ plugin for real‑time transient detection & sample‑accurate markers.</p>
             <ul class="product-features">
-              <li>Real‑time Peak Detection</li>
+              <li>Real‑time Peak Detection</li>
               <li>Multi‑frequency Analysis</li>
               <li>Sample‑accurate Timing</li>
             </ul>
             <span class="cta-button disabled">In Development</span>
           </div>
+
         </div>
       </div>
     </section>
@@ -546,17 +463,10 @@
     <!-- ABOUT -->
     <section class="about" id="about">
       <div class="container">
-        <h2>About KT Forge</h2>
+        <h2>About KT Forge</h2>
         <div class="about-content">
-          <p>
-            <strong>We're motion designers & developers</strong> who got tired
-            of repetitive tasks interrupting the creative flow.
-          </p>
-          <p>
-            Our mission is simple: <em>erase technical friction</em> so you can
-            stay in the creative zone. Every tool is battle‑tested on real
-            projects and refined for maximum speed.
-          </p>
+          <p><strong>We’re motion designers & developers</strong> who got tired of repetitive tasks interrupting the creative flow.</p>
+          <p>Our mission is simple: <em>erase technical friction</em> so you can stay in the creative zone. Every tool is battle‑tested on real projects and refined for maximum speed.</p>
         </div>
       </div>
     </section>
@@ -567,33 +477,22 @@
         <div class="footer-grid">
           <div class="footer-section">
             <h3>Products</h3>
-            <a
-              href="https://ktforge.etsy.com/listing/4310156467/layer-flow-professional-after-effects"
-              target="_blank"
-              >Layer Flow v1.0</a
-            >
-            <a href="#products">BPM Audio Detector</a>
+            <a href="https://ktforge.etsy.com/listing/4310156467/layer-flow-professional-after-effects" target="_blank">Layer Flow v1.0</a>
+            <a href="#products">BPM Audio Detector</a>
             <a href="#products">Beat Detection Plugin</a>
           </div>
           <div class="footer-section">
-            <h3>Resources</h3>
-            <a href="https://www.etsy.com/shop/KTForge" target="_blank"
-              >Etsy Store</a
-            >
-            <a href="https://layerflow.shop" target="_blank"
-              >Layer Flow Info</a
-            >
-            <a href="https://youtu.be/TCu9JGneKEM" target="_blank"
-              >Product Demos</a
-            >
+            <h3>Business</h3>
+            <a href="https://www.etsy.com/shop/KTForge" target="_blank">Etsy Store</a>
+            <a href="https://github.com/ktforge" target="_blank">GitHub</a>
           </div>
           <div class="footer-section">
             <h3>Support</h3>
-            <a href="mailto:officialknifetastic@gmail.com">Email Support</a>
-            <a href="#products">Documentation</a>
+            <a href="mailto:officialknifetastic@gmail.com">Email Support</a>
+            <a href="https://youtu.be/TCu9JGneKEM" target="_blank">Demo Videos</a>
           </div>
         </div>
-        <p>© 2025 KT Forge – Crafted with ❤️ in Ohio</p>
+        <p>© 2025 KT Forge – Crafted with ❤️ in Ohio</p>
       </div>
     </footer>
   </body>
