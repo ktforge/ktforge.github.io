@@ -15,12 +15,9 @@
 
     <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-yH0M6B7n4TLVPBVFgbi3luiK+zd4TKxFBf/6VoyX5ulpSHiD/7QEi8k8x4D4Apq9uSA0KvyuAuy7u65arE2TWA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
 
     <style>
-        /* ----------------------------------
-         1. ROOT & RESET
-      ---------------------------------- */
         :root {
             --bg: #0d1117;
             --panel: #161b22;
@@ -60,9 +57,6 @@
             padding: 0 24px;
         }
 
-        /* ----------------------------------
-         2. HEADER
-      ---------------------------------- */
         header {
             position: fixed;
             top: 0;
@@ -103,9 +97,6 @@
             text-decoration: none;
         }
 
-        /* ----------------------------------
-         3. MAIN CONTENT
-      ---------------------------------- */
         .main-content {
             padding: 140px 0 80px;
             min-height: 100vh;
@@ -319,9 +310,6 @@
             text-decoration: none;
         }
 
-        /* ----------------------------------
-         4. FOOTER
-      ---------------------------------- */
         footer {
             background: #010409;
             border-top: 1px solid var(--border);
@@ -348,9 +336,6 @@
             font-size: 0.9rem;
         }
 
-        /* ----------------------------------
-         5. RESPONSIVE
-      ---------------------------------- */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -369,7 +354,6 @@
     </style>
 </head>
 <body>
-    <!-- HEADER -->
     <header>
         <nav>
             <a href="/" class="logo">KT&nbsp;Forge</a>
@@ -381,10 +365,8 @@
         </nav>
     </header>
 
-    <!-- MAIN CONTENT -->
     <main class="main-content">
         <div class="container">
-            <!-- Breadcrumb -->
             <div class="breadcrumb">
                 <a href="/">KT Forge</a>
                 <span class="breadcrumb-separator">›</span>
@@ -393,7 +375,6 @@
                 <span style="color: #8b949e;">Terms of Use</span>
             </div>
 
-            <!-- Document Window -->
             <div class="document-window">
                 <div class="window-bar">
                     <span class="circle red"></span>
@@ -546,7 +527,6 @@
         </div>
     </main>
 
-    <!-- FOOTER -->
     <footer>
         <div class="container">
             <div class="footer-content">
