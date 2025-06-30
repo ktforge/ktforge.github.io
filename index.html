@@ -11,11 +11,11 @@
     <!-- SEO & Social -->
     <meta
       name="description"
-      content="Professional After Effects scripts and workflow‑boosting plugins from KT Forge. Transform tedious tasks into one‑click solutions."
+      content="Professional After Effects scripts and workflow‑boosting plugins from KT Forge. Transform tedious tasks into one‑click solutions. Plus HabitTracker iOS app - now available on the App Store!"
     />
     <meta
       name="keywords"
-      content="After Effects scripts, AE plugins, motion graphics tools, workflow automation, Layer Flow, HabitTracker, iOS app"
+      content="After Effects scripts, AE plugins, motion graphics tools, workflow automation, Layer Flow, HabitTracker, iOS app, App Store, habit tracking"
     />
     <meta
       property="og:title"
@@ -23,7 +23,7 @@
     />
     <meta
       property="og:description"
-      content="Discover Layer Flow and upcoming audio‑sync plugins that super‑charge your creative workflow, plus HabitTracker iOS app."
+      content="Discover Layer Flow and upcoming audio‑sync plugins that super‑charge your creative workflow, plus HabitTracker iOS app - now live on the App Store!"
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://ktforge.dev" />
@@ -511,8 +511,17 @@
         font-weight: 700;
         color: #0d1117;
       }
+      .tag.live {
+        background: var(--success);
+        animation: pulse 2s infinite;
+      }
       .coming-soon .tag {
         background: var(--warning);
+      }
+      @keyframes pulse {
+        0% { opacity: 1; }
+        50% { opacity: 0.8; }
+        100% { opacity: 1; }
       }
       .product-card h3 {
         font-size: 1.4rem;
@@ -779,12 +788,12 @@
             </ul>
             <span class="cta-button disabled">In Development</span>
           </div>
-          <!-- HabitTracker App -->
-          <div class="product-card coming-soon">
-            <span class="tag">Coming Soon</span>
+          <!-- HabitTracker App - UPDATED -->
+          <div class="product-card">
+            <span class="tag live">Live on App Store</span>
             <h3>HabitTracker</h3>
             <p>
-              iOS habit tracking app based on Jerry Seinfeld's "Don't Break the Chain" method.
+              iOS habit tracking app based on Jerry Seinfeld's "Don't Break the Chain" method. Build lasting habits with visual streak tracking.
             </p>
             <ul class="product-features">
               <li>Visual Chain Tracking</li>
@@ -794,9 +803,9 @@
               <li>Local Data Storage</li>
             </ul>
             <div class="product-links">
-              <a href="habittracker.html" class="cta-button">View App Details</a>
+              <a href="https://apps.apple.com/app/id6747647440" target="_blank" class="cta-button">📱 Download Now</a>
+              <a href="habittracker.html" class="cta-secondary">View App Details</a>
               <a href="habittracker-privacy.html" class="cta-secondary">Privacy Policy</a>
-              <a href="habittracker-eula.html" class="cta-secondary">Terms of Use</a>
             </div>
           </div>
         </div>
@@ -833,7 +842,7 @@
               >Layer Flow v1.0</a
             ><a href="#products">BPM Audio Detector</a
             ><a href="#products">Beat Detection Plugin</a
-            ><a href="habittracker.html">HabitTracker iOS App</a>
+            ><a href="https://apps.apple.com/app/id6747647440" target="_blank">HabitTracker iOS App</a>
           </div>
           <div class="footer-section">
             <h3>Resources</h3>
