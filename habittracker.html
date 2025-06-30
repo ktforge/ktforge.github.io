@@ -6,10 +6,10 @@
     <title>HabitTracker - Don't Break the Chain | KT Forge</title>
     
     <!-- SEO & Social -->
-    <meta name="description" content="HabitTracker iOS app - Build lasting habits with Jerry Seinfeld's 'Don't Break the Chain' method. Visual streak tracking, multiple habits, and premium features.">
+    <meta name="description" content="HabitTracker iOS app - Build lasting habits with Jerry Seinfeld's 'Don't Break the Chain' method. Visual streak tracking, multiple habits, and premium features. Download now on the App Store!">
     <meta name="keywords" content="habit tracker, iOS app, don't break the chain, streak tracking, productivity app, habits">
     <meta property="og:title" content="HabitTracker - Don't Break the Chain | KT Forge">
-    <meta property="og:description" content="iOS habit tracking app based on Jerry Seinfeld's famous productivity method. Track streaks, build habits, don't break the chain.">
+    <meta property="og:description" content="iOS habit tracking app based on Jerry Seinfeld's famous productivity method. Track streaks, build habits, don't break the chain. Available now on the App Store!">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ktforge.dev/habittracker.html">
 
@@ -189,16 +189,16 @@
         .app-icon-section {
             text-align: center;
         }
-.app-icon {
-    width: 200px;
-    height: 200px;
-    border-radius: 44px;
-    margin: 0 auto 20px;
-    display: block;
-    object-fit: cover;
-    box-shadow: 0 20px 60px rgba(76, 175, 80, 0.3);
-    animation: float 6s ease-in-out infinite;
-}
+        .app-icon {
+            width: 200px;
+            height: 200px;
+            border-radius: 44px;
+            margin: 0 auto 20px;
+            display: block;
+            object-fit: cover;
+            box-shadow: 0 20px 60px rgba(76, 175, 80, 0.3);
+            animation: float 6s ease-in-out infinite;
+        }
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
@@ -208,8 +208,10 @@
             margin-top: 2rem;
         }
         .download-btn {
-            display: inline-block;
-            padding: 15px 40px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 45px;
             border-radius: 999px;
             background: linear-gradient(135deg, var(--app-green), #66BB6A);
             color: #fff;
@@ -218,16 +220,43 @@
             transition: transform 0.25s, box-shadow 0.25s;
             cursor: pointer;
             font-size: 1.1rem;
+            text-decoration: none;
+            border: none;
         }
         .download-btn:hover {
             transform: translateY(-4px) scale(1.03);
             box-shadow: 0 16px 40px rgba(76, 175, 80, 0.45);
+            color: #fff;
+            text-decoration: none;
         }
-        .coming-soon {
-            color: var(--warning);
-            font-size: 0.9rem;
+        .download-btn i {
+            font-size: 1.3rem;
+        }
+        .app-status {
+            color: var(--success);
+            font-size: 0.95rem;
             margin-top: 1rem;
-            font-style: italic;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .app-status i {
+            font-size: 1.1rem;
+        }
+        .live-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
         }
 
         /* ----------------------------------
@@ -419,105 +448,4 @@
         <div class="container">
             <div class="app-window">
                 <div class="window-bar">
-                    <span class="circle red"></span>
-                    <span class="circle yellow"></span>
-                    <span class="circle green"></span>
-                </div>
-                <div class="hero-content">
-                    <div class="app-info">
-                        <h1>HabitTracker</h1>
-                        <p class="tagline">Don't Break the Chain</p>
-                        <p class="description">
-                            Build lasting habits with Jerry Seinfeld's famous productivity method. 
-                            Track your streaks, visualize your progress, and never break the chain again.
-                        </p>
-                        <div class="download-section">
-                            <a href="#" class="download-btn">📱 Download on App Store</a>
-                            <p class="coming-soon">Coming Soon to iOS</p>
-                        </div>
-                    </div>
-                    <div class="app-icon-section">
-    <img src="https://ktforge.dev/habittracker-logo.png" alt="HabitTracker App Icon" class="app-icon">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FEATURES -->
-    <section class="features">
-        <div class="container">
-            <h2>Powerful Features</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <span class="feature-icon">🔥</span>
-                    <h3>Don't Break the Chain</h3>
-                    <p>Based on Jerry Seinfeld's famous productivity method. Mark each day you complete your habit and watch your chain grow longer.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">📊</span>
-                    <h3>Track Your Streaks</h3>
-                    <p>See your current streak and longest streak. Visual calendar shows your progress at a glance with beautiful chain visualization.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🎯</span>
-                    <h3>Multiple Habits</h3>
-                    <p>Track multiple habits with custom colors and schedules. Premium version offers unlimited habits with advanced analytics.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">📱</span>
-                    <h3>Simple & Fast</h3>
-                    <p>Designed for speed. Mark habits complete with a single tap. Clean, iOS-native interface that feels natural to use.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🔒</span>
-                    <h3>Privacy First</h3>
-                    <p>All data stays on your device. No cloud syncing, no tracking, no ads. Your habits are private and secure.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">💎</span>
-                    <h3>Premium Features</h3>
-                    <p>Unlock unlimited habits, advanced statistics, custom themes, and detailed progress reports with premium subscription.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SCREENSHOTS -->
-    <section class="screenshots">
-        <div class="container">
-            <h2>App Preview</h2>
-            <div class="screenshots-grid">
-                <div class="screenshot-card">
-                    <div class="screenshot-placeholder">📅</div>
-                    <h3>Calendar View</h3>
-                    <p>Visual chain tracking with beautiful calendar interface</p>
-                </div>
-                <div class="screenshot-card">
-                    <div class="screenshot-placeholder">📊</div>
-                    <h3>Progress Stats</h3>
-                    <p>Detailed analytics and streak information</p>
-                </div>
-                <div class="screenshot-card">
-                    <div class="screenshot-placeholder">⚙️</div>
-                    <h3>Settings</h3>
-                    <p>Customize habits, colors, and premium features</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <a href="habittracker-privacy.html">Privacy Policy</a>
-                <a href="habittracker-eula.html">Terms of Use</a>
-                <a href="mailto:habittracker.ktforge@outlook.com">Support</a>
-                <a href="/">Back to KT Forge</a>
-            </div>
-            <p class="footer-note">© 2025 KT Forge – HabitTracker iOS App</p>
-        </div>
-    </footer>
-</body>
-</html>
+                    <
