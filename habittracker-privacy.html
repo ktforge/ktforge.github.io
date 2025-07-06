@@ -508,53 +508,22 @@
                 If you have questions about this Privacy Policy, we're here to
                 help:
               </p>
-              <button class="contact-email" onclick="openPopup()">
+              <button
+                onclick="togglePopup()"
+                class="contact-email"
+                style="
+                  background: none;
+                  border: none;
+                  color: #0d1117;
+                  padding: 0.75rem 1.5rem;
+                  border-radius: 6px;
+                  font-weight: 600;
+                  cursor: pointer;
+                  background: var(--accent);
+                "
+              >
                 Contact Support
               </button>
-            </div>
-
-            <div
-              id="contactPopup"
-              class="popup-overlay"
-              onclick="clickOutsideToClose(event)"
-            >
-              <div class="popup-content">
-                <button class="close-btn" onclick="closePopup()">×</button>
-                <h3>Contact Support</h3>
-                <form
-                  id="supportForm"
-                  action="https://formspree.io/f/xyzjaded"
-                  method="POST"
-                >
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Your Email"
-                    required
-                  />
-                  <input
-                    type="text"
-                    name="subject"
-                    placeholder="Subject"
-                    required
-                  />
-                  <textarea
-                    name="message"
-                    rows="5"
-                    placeholder="Your Message"
-                    required
-                  ></textarea>
-                  <button type="submit">Send</button>
-                  <div
-                    id="formStatus"
-                    style="
-                      text-align: center;
-                      margin-top: 1rem;
-                      font-weight: 500;
-                    "
-                  ></div>
-                </form>
-              </div>
             </div>
           </div>
         </div>
@@ -567,134 +536,172 @@
         <div class="footer-content">
           <a href="habittracker.html">← Back to HabitTracker</a>
           <a href="/">KT Forge Home</a>
-          <a href="#" onclick="openPopup()">Support</a>
+          <button
+            onclick="togglePopup()"
+            style="
+              background: none;
+              border: none;
+              color: var(--accent);
+              cursor: pointer;
+              font: inherit;
+              padding: 0;
+            "
+          >
+            Support
+          </button>
         </div>
         <p class="footer-note">
           © 2025 KT Forge – Your privacy is our priority
         </p>
       </div>
     </footer>
-    <style>
-      .popup-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.7);
+    <div
+      id="contact-popup"
+      style="
         display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(4px);
+        z-index: 9999;
         align-items: center;
         justify-content: center;
-        z-index: 9999;
+      "
+    >
+      <div
+        onclick="event.stopPropagation()"
+        style="
+          background: var(--panel);
+          border: 1px solid var(--border);
+          padding: 2rem;
+          max-width: 420px;
+          width: 90%;
+          border-radius: var(--radius);
+          position: relative;
+          box-shadow: var(--shadow-lg);
+          animation: fadeIn 0.3s ease-out;
+        "
+      >
+        <button
+          onclick="togglePopup()"
+          aria-label="Close"
+          style="
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.2rem;
+            cursor: pointer;
+          "
+        >
+          &times;
+        </button>
+        <h2
+          style="color: var(--accent); margin-bottom: 1rem; font-size: 1.5rem"
+        >
+          Contact Support
+        </h2>
+        <form
+          action="https://formspree.io/f/xyzjaded"
+          method="POST"
+          style="display: flex; flex-direction: column; gap: 1rem"
+        >
+          <input
+            type="email"
+            name="email"
+            placeholder="Your email"
+            required
+            style="
+              padding: 0.75rem;
+              border-radius: 6px;
+              border: 1px solid var(--border);
+              background: var(--bg);
+              color: var(--text);
+            "
+          />
+          <input
+            type="text"
+            name="subject"
+            placeholder="Subject"
+            required
+            style="
+              padding: 0.75rem;
+              border-radius: 6px;
+              border: 1px solid var(--border);
+              background: var(--bg);
+              color: var(--text);
+            "
+          />
+          <textarea
+            name="message"
+            placeholder="Your message"
+            required
+            rows="4"
+            style="
+              padding: 0.75rem;
+              border-radius: 6px;
+              border: 1px solid var(--border);
+              background: var(--bg);
+              color: var(--text);
+              resize: vertical;
+            "
+          ></textarea>
+          <button
+            type="submit"
+            style="
+              padding: 0.75rem;
+              border-radius: 6px;
+              background: var(--accent);
+              color: #0d1117;
+              font-weight: 600;
+              cursor: pointer;
+              border: none;
+            "
+          >
+            Send Message
+          </button>
+          <p
+            style="
+              color: var(--success);
+              font-size: 0.85rem;
+              text-align: center;
+            "
+            id="form-status"
+          ></p>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      function togglePopup() {
+        const popup = document.getElementById("contact-popup");
+        popup.style.display = popup.style.display === "flex" ? "none" : "flex";
       }
 
-      .popup-content {
-        background: var(--panel);
-        color: var(--text);
-        padding: 2rem;
-        border-radius: var(--radius);
-        max-width: 500px;
-        width: 90%;
-        box-shadow: var(--shadow-lg);
-        position: relative;
-        animation: fadeUp 0.4s ease-out both;
-      }
+      window.addEventListener("click", (e) => {
+        const popup = document.getElementById("contact-popup");
+        if (e.target === popup) popup.style.display = "none";
+      });
 
-      .popup-content h3 {
-        color: var(--accent);
-        margin-bottom: 1rem;
-        text-align: center;
-      }
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape")
+          document.getElementById("contact-popup").style.display = "none";
+      });
+    </script>
 
-      .popup-content input,
-      .popup-content textarea {
-        width: 100%;
-        background: var(--bg);
-        color: var(--text);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        padding: 0.75rem;
-        margin-bottom: 1rem;
-        font-family: "Fira Code", monospace;
-        resize: none;
-      }
-
-      .popup-content button[type="submit"] {
-        background: var(--accent);
-        color: #0d1117;
-        border: none;
-        padding: 0.75rem 1.5rem;
-        font-weight: 600;
-        border-radius: var(--radius);
-        cursor: pointer;
-        transition: background 0.3s;
-        width: 100%;
-      }
-
-      .popup-content button[type="submit"]:hover {
-        background: var(--accent-2);
-      }
-
-      .close-btn {
-        position: absolute;
-        top: 10px;
-        right: 14px;
-        background: none;
-        border: none;
-        color: var(--text);
-        font-size: 1.5rem;
-        cursor: pointer;
-      }
-
-      @media (max-width: 500px) {
-        .popup-content {
-          padding: 1.5rem;
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
         }
       }
     </style>
-
-    <script>
-      function openPopup() {
-        document.getElementById("contactPopup").style.display = "flex";
-        document.addEventListener("keydown", handleEscape);
-      }
-
-      function closePopup() {
-        document.getElementById("contactPopup").style.display = "none";
-        document.removeEventListener("keydown", handleEscape);
-      }
-
-      function handleEscape(e) {
-        if (e.key === "Escape") closePopup();
-      }
-
-      function clickOutsideToClose(e) {
-        if (e.target.id === "contactPopup") closePopup();
-      }
-
-      document
-        .getElementById("supportForm")
-        .addEventListener("submit", async function (e) {
-          e.preventDefault();
-          const form = e.target;
-          const status = document.getElementById("formStatus");
-
-          const data = new FormData(form);
-          const res = await fetch(form.action, {
-            method: form.method,
-            body: data,
-            headers: { Accept: "application/json" },
-          });
-
-          if (res.ok) {
-            status.style.color = "var(--success)";
-            status.textContent = "✅ Message sent successfully!";
-            form.reset();
-          } else {
-            status.style.color = "#ff6b6b";
-            status.textContent = "❌ Something went wrong. Please try again.";
-          }
-        });
-    </script>
   </body>
 </html>
