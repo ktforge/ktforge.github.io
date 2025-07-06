@@ -1,603 +1,722 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Habit Tracker: Pro - Don't Break the Chain | KT Forge</title>
-<!-- SEO & Social -->
-<meta content="Habit Tracker: Pro iOS app - Build lasting habits with Jerry Seinfeld's 'Don't Break the Chain' method. Visual streak tracking, multiple habits, and premium features. Download now on the App Store!" name="description"/>
-<meta content="habit tracker, iOS app, don't break the chain, streak tracking, productivity app, habits" name="keywords"/>
-<meta content="Habit Tracker: Pro - Don't Break the Chain | KT Forge" property="og:title"/>
-<meta content="iOS habit tracking app based on Jerry Seinfeld's famous productivity method. Track streaks, build habits, don't break the chain. Available now on the App Store!" property="og:description"/>
-<meta content="website" property="og:type"/>
-<meta content="https://ktforge.dev/habittracker.html" property="og:url"/>
-<!-- Fonts & Icons -->
-<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-yH0M6B7n4TLVPBVFgbi3luiK+zd4TKxFBf/6VoyX5ulpSHiD/7QEi8k8x4D4Apq9uSA0KvyuAuy7u65arE2TWA==" referrerpolicy="no-referrer" rel="stylesheet"/>
-<style>
-        /* ----------------------------------
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Habit Tracker: Pro - Don't Break the Chain | KT Forge</title>
+    <!-- SEO & Social -->
+    <meta
+      content="Habit Tracker: Pro iOS app - Build lasting habits with Jerry Seinfeld's 'Don't Break the Chain' method. Visual streak tracking, multiple habits, and premium features. Download now on the App Store!"
+      name="description"
+    />
+    <meta
+      content="habit tracker, iOS app, don't break the chain, streak tracking, productivity app, habits"
+      name="keywords"
+    />
+    <meta
+      content="Habit Tracker: Pro - Don't Break the Chain | KT Forge"
+      property="og:title"
+    />
+    <meta
+      content="iOS habit tracking app based on Jerry Seinfeld's famous productivity method. Track streaks, build habits, don't break the chain. Available now on the App Store!"
+      property="og:description"
+    />
+    <meta content="website" property="og:type" />
+    <meta content="https://ktforge.dev/habittracker.html" property="og:url" />
+    <!-- Fonts & Icons -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      crossorigin="anonymous"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-yH0M6B7n4TLVPBVFgbi3luiK+zd4TKxFBf/6VoyX5ulpSHiD/7QEi8k8x4D4Apq9uSA0KvyuAuy7u65arE2TWA=="
+      referrerpolicy="no-referrer"
+      rel="stylesheet"
+    />
+    <style>
+      /* ----------------------------------
          1. ROOT & RESET
       ---------------------------------- */
-        :root {
-            --bg: #0d1117;
-            --panel: #161b22;
-            --border: #21262d;
-            --text: #c9d1d9;
-            --accent: #58a6ff;
-            --accent-2: #8aebff;
-            --success: #3fb950;
-            --warning: #d29922;
-            --radius: 10px;
-            --shadow-lg: 0 25px 60px rgba(0, 0, 0, 0.35);
-            --app-green: #4CAF50;
-        }
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: "Fira Code", monospace;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.75;
-            scroll-behavior: smooth;
-        }
-        a {
-            color: var(--accent);
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
+      :root {
+        --bg: #0d1117;
+        --panel: #161b22;
+        --border: #21262d;
+        --text: #c9d1d9;
+        --accent: #58a6ff;
+        --accent-2: #8aebff;
+        --success: #3fb950;
+        --warning: #d29922;
+        --radius: 10px;
+        --shadow-lg: 0 25px 60px rgba(0, 0, 0, 0.35);
+        --app-green: #4caf50;
+      }
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Fira Code", monospace;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.75;
+        scroll-behavior: smooth;
+      }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
 
-        /* ----------------------------------
+      /* ----------------------------------
          2. HEADER
       ---------------------------------- */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(22, 27, 34, 0.85);
-            backdrop-filter: blur(18px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-        }
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-            height: 70px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .logo {
-            font-weight: 600;
-            font-size: 1.6rem;
-            color: var(--accent-2);
-            letter-spacing: 0.5px;
-        }
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-        .nav-links a {
-            color: var(--text);
-            transition: opacity 0.25s;
-        }
-        .nav-links a:hover {
-            opacity: 0.8;
-            color: var(--accent);
-        }
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(22, 27, 34, 0.85);
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid var(--border);
+        z-index: 1000;
+      }
+      nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .logo {
+        font-weight: 600;
+        font-size: 1.6rem;
+        color: var(--accent-2);
+        letter-spacing: 0.5px;
+      }
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+      .nav-links a {
+        color: var(--text);
+        transition: opacity 0.25s;
+      }
+      .nav-links a:hover {
+        opacity: 0.8;
+        color: var(--accent);
+      }
 
-        /* ----------------------------------
+      /* ----------------------------------
          3. HERO SECTION
       ---------------------------------- */
-        .hero {
-            position: relative;
-            padding: 140px 0 120px;
-            background: radial-gradient(circle at top right, rgba(76, 175, 80, 0.15) 0%, transparent 60%);
-            overflow: hidden;
+      .hero {
+        position: relative;
+        padding: 140px 0 120px;
+        background: radial-gradient(
+          circle at top right,
+          rgba(76, 175, 80, 0.15) 0%,
+          transparent 60%
+        );
+        overflow: hidden;
+      }
+      .grid-bg {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image: linear-gradient(
+            0deg,
+            transparent 95%,
+            rgba(136, 153, 168, 0.05) 95%
+          ),
+          linear-gradient(90deg, transparent 95%, rgba(136, 153, 168, 0.05) 95%);
+        background-size: 40px 40px;
+        animation: gridMove 40s linear infinite;
+        z-index: 0;
+      }
+      @keyframes gridMove {
+        0% {
+          background-position: 0 0, 0 0;
         }
-        .grid-bg {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            background-image: linear-gradient(0deg, transparent 95%, rgba(136, 153, 168, 0.05) 95%), 
-                            linear-gradient(90deg, transparent 95%, rgba(136, 153, 168, 0.05) 95%);
-            background-size: 40px 40px;
-            animation: gridMove 40s linear infinite;
-            z-index: 0;
+        100% {
+          background-position: 40px 0, 0 40px;
         }
-        @keyframes gridMove {
-            0% { background-position: 0 0, 0 0; }
-            100% { background-position: 40px 0, 0 40px; }
-        }
+      }
 
-        .app-window {
-            position: relative;
-            background: var(--panel);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            max-width: 960px;
-            margin: 0 auto;
-            box-shadow: var(--shadow-lg);
-            overflow: hidden;
-            animation: fadeUp 0.9s ease-out both;
-            z-index: 5;
+      .app-window {
+        position: relative;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        max-width: 960px;
+        margin: 0 auto;
+        box-shadow: var(--shadow-lg);
+        overflow: hidden;
+        animation: fadeUp 0.9s ease-out both;
+        z-index: 5;
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
         }
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
-        .window-bar {
-            height: 36px;
-            background: #0d1117;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 0 14px;
-        }
-        .circle {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-        .red { background: #ff5f56; }
-        .yellow { background: #ffbd2e; }
-        .green { background: #27c93f; }
-        
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            padding: 3rem 2rem 4rem;
-        }
-        
-        .app-info h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            background: linear-gradient(90deg, var(--app-green), var(--accent) 50%, #a685ff);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            margin-bottom: 1.2rem;
-            letter-spacing: 1px;
-        }
-        .app-info p.tagline {
-            font-size: 1.25rem;
-            color: #8b949e;
-            margin-bottom: 2rem;
-        }
-        .app-info p.description {
-            font-size: 1rem;
-            color: #8b949e;
-            margin-bottom: 2.4rem;
-            line-height: 1.6;
-        }
-        
-        .app-icon-section {
-            text-align: center;
-        }
-        .app-icon {
-            width: 200px;
-            height: 200px;
-            border-radius: 44px;
-            margin: 0 auto 20px;
-            display: block;
-            object-fit: cover;
-            box-shadow: 0 20px 60px rgba(76, 175, 80, 0.3);
-            animation: float 6s ease-in-out infinite;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        .download-section {
-            margin-top: 2rem;
-        }
-        .download-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 18px 45px;
-            border-radius: 999px;
-            background: linear-gradient(135deg, var(--app-green), #66BB6A);
-            color: #fff;
-            font-weight: 600;
-            box-shadow: 0 10px 32px rgba(76, 175, 80, 0.35);
-            transition: transform 0.25s, box-shadow 0.25s;
-            cursor: pointer;
-            font-size: 1.1rem;
-            text-decoration: none;
-            border: none;
-        }
-        .download-btn:hover {
-            transform: translateY(-4px) scale(1.03);
-            box-shadow: 0 16px 40px rgba(76, 175, 80, 0.45);
-            color: #fff;
-            text-decoration: none;
-        }
-        .download-btn i {
-            font-size: 1.3rem;
-        }
-        .app-status {
-            color: var(--success);
-            font-size: 0.95rem;
-            margin-top: 1rem;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-        .app-status i {
-            font-size: 1.1rem;
-        }
-        .live-indicator {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            background: var(--success);
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.5; }
-            100% { opacity: 1; }
-        }
+      }
+      .window-bar {
+        height: 36px;
+        background: #0d1117;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0 14px;
+      }
+      .circle {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+      .red {
+        background: #ff5f56;
+      }
+      .yellow {
+        background: #ffbd2e;
+      }
+      .green {
+        background: #27c93f;
+      }
 
-        /* ----------------------------------
+      .hero-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        padding: 3rem 2rem 4rem;
+      }
+
+      .app-info h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        background: linear-gradient(
+          90deg,
+          var(--app-green),
+          var(--accent) 50%,
+          #a685ff
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        margin-bottom: 1.2rem;
+        letter-spacing: 1px;
+      }
+      .app-info p.tagline {
+        font-size: 1.25rem;
+        color: #8b949e;
+        margin-bottom: 2rem;
+      }
+      .app-info p.description {
+        font-size: 1rem;
+        color: #8b949e;
+        margin-bottom: 2.4rem;
+        line-height: 1.6;
+      }
+
+      .app-icon-section {
+        text-align: center;
+      }
+      .app-icon {
+        width: 200px;
+        height: 200px;
+        border-radius: 44px;
+        margin: 0 auto 20px;
+        display: block;
+        object-fit: cover;
+        box-shadow: 0 20px 60px rgba(76, 175, 80, 0.3);
+        animation: float 6s ease-in-out infinite;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .download-section {
+        margin-top: 2rem;
+      }
+      .download-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 18px 45px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--app-green), #66bb6a);
+        color: #fff;
+        font-weight: 600;
+        box-shadow: 0 10px 32px rgba(76, 175, 80, 0.35);
+        transition: transform 0.25s, box-shadow 0.25s;
+        cursor: pointer;
+        font-size: 1.1rem;
+        text-decoration: none;
+        border: none;
+      }
+      .download-btn:hover {
+        transform: translateY(-4px) scale(1.03);
+        box-shadow: 0 16px 40px rgba(76, 175, 80, 0.45);
+        color: #fff;
+        text-decoration: none;
+      }
+      .download-btn i {
+        font-size: 1.3rem;
+      }
+      .app-status {
+        color: var(--success);
+        font-size: 0.95rem;
+        margin-top: 1rem;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+      .app-status i {
+        font-size: 1.1rem;
+      }
+      .live-indicator {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        background: var(--success);
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      /* ----------------------------------
          4. FEATURES SECTION
       ---------------------------------- */
-        .features {
-            padding: 120px 0;
-            background: var(--bg);
-        }
-        .features h2 {
-            text-align: center;
-            font-size: 2.6rem;
-            margin-bottom: 3rem;
-            background: linear-gradient(90deg, var(--app-green), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.2rem;
-        }
-        .feature-card {
-            background: var(--panel);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 2.5rem 2rem;
-            position: relative;
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-align: center;
-        }
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 16px 44px rgba(0, 0, 0, 0.35);
-        }
-        .feature-card::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            border-radius: var(--radius);
-            padding: 2px;
-            background: linear-gradient(45deg, transparent, var(--app-green), transparent);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        .feature-card:hover::before {
-            opacity: 1;
-        }
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-        .feature-card h3 {
-            font-size: 1.4rem;
-            color: #e6edf3;
-            margin-bottom: 1rem;
-        }
-        .feature-card p {
-            color: #8b949e;
-            line-height: 1.6;
-        }
+      .features {
+        padding: 120px 0;
+        background: var(--bg);
+      }
+      .features h2 {
+        text-align: center;
+        font-size: 2.6rem;
+        margin-bottom: 3rem;
+        background: linear-gradient(90deg, var(--app-green), var(--accent));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2.2rem;
+      }
+      .feature-card {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 2.5rem 2rem;
+        position: relative;
+        transition: transform 0.3s, box-shadow 0.3s;
+        text-align: center;
+      }
+      .feature-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 16px 44px rgba(0, 0, 0, 0.35);
+      }
+      .feature-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: var(--radius);
+        padding: 2px;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          var(--app-green),
+          transparent
+        );
+        -webkit-mask: linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .feature-card:hover::before {
+        opacity: 1;
+      }
+      .feature-icon {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+        display: block;
+      }
+      .feature-card h3 {
+        font-size: 1.4rem;
+        color: #e6edf3;
+        margin-bottom: 1rem;
+      }
+      .feature-card p {
+        color: #8b949e;
+        line-height: 1.6;
+      }
 
-        /* ----------------------------------
+      /* ----------------------------------
          5. SCREENSHOTS SECTION
       ---------------------------------- */
-        .screenshots {
-            padding: 120px 0;
-            background: var(--panel);
-            border-top: 1px solid var(--border);
-        }
-        .screenshots h2 {
-            text-align: center;
-            font-size: 2.4rem;
-            color: var(--accent);
-            margin-bottom: 3rem;
-        }
-        .screenshots-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .screenshot-card {
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 1.5rem;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        .screenshot-card:hover {
-            transform: scale(1.05);
-        }
-        .screenshot-placeholder {
-            width: 100%;
-            height: 300px;
-            background: linear-gradient(135deg, var(--border), var(--panel));
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-            font-size: 4rem;
-            color: var(--app-green);
-        }
-        .screenshot-card h3 {
-            color: #e6edf3;
-            margin-bottom: 0.5rem;
-        }
-        .screenshot-card p {
-            color: #8b949e;
-            font-size: 0.9rem;
-        }
+      .screenshots {
+        padding: 120px 0;
+        background: var(--panel);
+        border-top: 1px solid var(--border);
+      }
+      .screenshots h2 {
+        text-align: center;
+        font-size: 2.4rem;
+        color: var(--accent);
+        margin-bottom: 3rem;
+      }
+      .screenshots-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .screenshot-card {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.5rem;
+        text-align: center;
+        transition: transform 0.3s;
+      }
+      .screenshot-card:hover {
+        transform: scale(1.05);
+      }
+      .screenshot-placeholder {
+        width: 100%;
+        height: 300px;
+        background: linear-gradient(135deg, var(--border), var(--panel));
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        font-size: 4rem;
+        color: var(--app-green);
+      }
+      .screenshot-card h3 {
+        color: #e6edf3;
+        margin-bottom: 0.5rem;
+      }
+      .screenshot-card p {
+        color: #8b949e;
+        font-size: 0.9rem;
+      }
 
-        /* ----------------------------------
+      /* ----------------------------------
          6. FOOTER
       ---------------------------------- */
-        footer {
-            background: #010409;
-            border-top: 1px solid var(--border);
-            padding: 80px 0 50px;
-            text-align: center;
-        }
-        .footer-content {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-        .footer-content a {
-            color: #8b949e;
-            transition: color 0.25s;
-        }
-        .footer-content a:hover {
-            color: var(--accent);
-        }
-        .footer-note {
-            color: #57606a;
-            font-size: 0.9rem;
-        }
+      footer {
+        background: #010409;
+        border-top: 1px solid var(--border);
+        padding: 80px 0 50px;
+        text-align: center;
+      }
+      .footer-content {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+      }
+      .footer-content a {
+        color: #8b949e;
+        transition: color 0.25s;
+      }
+      .footer-content a:hover {
+        color: var(--accent);
+      }
+      .footer-note {
+        color: #57606a;
+        font-size: 0.9rem;
+      }
 
-        /* ----------------------------------
+      /* ----------------------------------
          7. RESPONSIVE
       ---------------------------------- */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .app-icon {
-                width: 150px;
-                height: 150px;
-                font-size: 75px;
-            }
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            .screenshots-grid {
-                grid-template-columns: 1fr;
-            }
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
         }
+        .hero-content {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+        .app-icon {
+          width: 150px;
+          height: 150px;
+          font-size: 75px;
+        }
+        .features-grid {
+          grid-template-columns: 1fr;
+        }
+        .screenshots-grid {
+          grid-template-columns: 1fr;
+        }
+      }
     </style>
-</head>
-<body>
-<!-- HEADER -->
-<header>
-<nav>
-<a class="logo" href="/">KT Forge</a>
-<ul class="nav-links">
-<li><a href="/#products">Products</a></li>
-<li><a href="/#about">About</a></li>
-<li><a href="/#contact">Contact</a></li>
-</ul>
-</nav>
-</header>
-<!-- HERO -->
-<section class="hero">
-<div class="grid-bg"></div>
-<div class="container">
-<div class="app-window">
-<div class="window-bar">
-<span class="circle red"></span>
-<span class="circle yellow"></span>
-<span class="circle green"></span>
-</div>
-<div class="hero-content">
-<div class="app-info">
-<h1>Habit Tracker: Pro</h1>
-<p class="tagline">Don't Break the Chain</p>
-<p class="description">
-                            Build lasting habits with Jerry Seinfeld's famous productivity method. 
-                            Track your streaks, visualize your progress, and never break the chain again.
-                        </p>
-<div class="download-section">
-<a class="download-btn" href="https://apps.apple.com/app/id6747647440" target="_blank">
-<i class="fab fa-apple"></i>
-                                Download on App Store
-                            </a>
-<div class="app-status">
-<span class="live-indicator"></span>
-<i class="fas fa-check-circle"></i>
-                                Now Live on iOS!
-                            </div>
-</div>
-</div>
-<div class="app-icon-section">
-<img alt="Habit Tracker: Pro App Icon" class="app-icon" src="https://ktforge.dev/habittracker-logo.png"/>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- FEATURES -->
-<section class="features">
-<div class="container">
-<h2>Powerful Features</h2>
-<div class="features-grid">
-<div class="feature-card">
-<span class="feature-icon">🔥</span>
-<h3>Don't Break the Chain</h3>
-<p>Based on Jerry Seinfeld's famous productivity method. Mark each day you complete your habit and watch your chain grow longer.</p>
-</div>
-<div class="feature-card">
-<span class="feature-icon">📊</span>
-<h3>Track Your Streaks</h3>
-<p>See your current streak and longest streak. Visual calendar shows your progress at a glance with beautiful chain visualization.</p>
-</div>
-<div class="feature-card">
-<span class="feature-icon">🎯</span>
-<h3>Multiple Habits</h3>
-<p>Track multiple habits with custom colors and schedules. Premium version offers unlimited habits with advanced analytics.</p>
-</div>
-<div class="feature-card">
-<span class="feature-icon">📱</span>
-<h3>Simple &amp; Fast</h3>
-<p>Designed for speed. Mark habits complete with a single tap. Clean, iOS-native interface that feels natural to use.</p>
-</div>
-<div class="feature-card">
-<span class="feature-icon">🔒</span>
-<h3>Privacy First</h3>
-<p>All data stays on your device. No cloud syncing, no tracking, no ads. Your habits are private and secure.</p>
-</div>
-<div class="feature-card">
-<span class="feature-icon">💎</span>
-<h3>Premium Features</h3>
-<p>Unlock unlimited habits, advanced statistics, custom themes, and detailed progress reports with premium subscription.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- SCREENSHOTS -->
-<section class="screenshots">
-<div class="container">
-<h2>App Preview</h2>
-<div class="screenshots-grid">
-<div class="screenshot-card">
-<div class="screenshot-placeholder">📅</div>
-<h3>Calendar View</h3>
-<p>Visual chain tracking with beautiful calendar interface</p>
-</div>
-<div class="screenshot-card">
-<div class="screenshot-placeholder">📊</div>
-<h3>Progress Stats</h3>
-<p>Detailed analytics and streak information</p>
-</div>
-<div class="screenshot-card">
-<div class="screenshot-placeholder">⚙️</div>
-<h3>Settings</h3>
-<p>Customize habits, colors, and premium features</p>
-</div>
-</div>
-</div>
-</section>
-<!-- FOOTER -->
-<footer>
-<div class="container">
-<div class="footer-content">
-<a href="habittracker-privacy.html">Privacy Policy</a>
-<a href="habittracker-eula.html">Terms of Use</a>
-<a href="#" onclick="openPopup()">Contact Support</a>
-<a href="/">Back to KT Forge</a>
-</div>
-<p class="footer-note">© 2025 KT Forge – HabitTracker iOS App</p>
-</div>
-</footer>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <nav>
+        <a class="logo" href="/">KT Forge</a>
+        <ul class="nav-links">
+          <li><a href="/#products">Products</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="grid-bg"></div>
+      <div class="container">
+        <div class="app-window">
+          <div class="window-bar">
+            <span class="circle red"></span>
+            <span class="circle yellow"></span>
+            <span class="circle green"></span>
+          </div>
+          <div class="hero-content">
+            <div class="app-info">
+              <h1>Habit Tracker: Pro</h1>
+              <p class="tagline">Don't Break the Chain</p>
+              <p class="description">
+                Build lasting habits with Jerry Seinfeld's famous productivity
+                method. Track your streaks, visualize your progress, and never
+                break the chain again.
+              </p>
+              <div class="download-section">
+                <a
+                  class="download-btn"
+                  href="https://apps.apple.com/app/id6747647440"
+                  target="_blank"
+                >
+                  <i class="fab fa-apple"></i>
+                  Download on App Store
+                </a>
+                <div class="app-status">
+                  <span class="live-indicator"></span>
+                  <i class="fas fa-check-circle"></i>
+                  Now Live on iOS!
+                </div>
+              </div>
+            </div>
+            <div class="app-icon-section">
+              <img
+                alt="Habit Tracker: Pro App Icon"
+                class="app-icon"
+                src="https://ktforge.dev/habittracker-logo.png"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- FEATURES -->
+    <section class="features">
+      <div class="container">
+        <h2>Powerful Features</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <span class="feature-icon">🔥</span>
+            <h3>Don't Break the Chain</h3>
+            <p>
+              Based on Jerry Seinfeld's famous productivity method. Mark each
+              day you complete your habit and watch your chain grow longer.
+            </p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">📊</span>
+            <h3>Track Your Streaks</h3>
+            <p>
+              See your current streak and longest streak. Visual calendar shows
+              your progress at a glance with beautiful chain visualization.
+            </p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🎯</span>
+            <h3>Multiple Habits</h3>
+            <p>
+              Track multiple habits with custom colors and schedules. Premium
+              version offers unlimited habits with advanced analytics.
+            </p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">📱</span>
+            <h3>Simple &amp; Fast</h3>
+            <p>
+              Designed for speed. Mark habits complete with a single tap. Clean,
+              iOS-native interface that feels natural to use.
+            </p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🔒</span>
+            <h3>Privacy First</h3>
+            <p>
+              All data stays on your device. No cloud syncing, no tracking, no
+              ads. Your habits are private and secure.
+            </p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">💎</span>
+            <h3>Premium Features</h3>
+            <p>
+              Unlock unlimited habits, advanced statistics, custom themes, and
+              detailed progress reports with premium subscription.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- SCREENSHOTS -->
+    <section class="screenshots">
+      <div class="container">
+        <h2>App Preview</h2>
+        <div class="screenshots-grid">
+          <div class="screenshot-card">
+            <div class="screenshot-placeholder">📅</div>
+            <h3>Calendar View</h3>
+            <p>Visual chain tracking with beautiful calendar interface</p>
+          </div>
+          <div class="screenshot-card">
+            <div class="screenshot-placeholder">📊</div>
+            <h3>Progress Stats</h3>
+            <p>Detailed analytics and streak information</p>
+          </div>
+          <div class="screenshot-card">
+            <div class="screenshot-placeholder">⚙️</div>
+            <h3>Settings</h3>
+            <p>Customize habits, colors, and premium features</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <a href="habittracker-privacy.html">Privacy Policy</a>
+          <a href="habittracker-eula.html">Terms of Use</a>
+          <a href="#" onclick="openPopup()">Contact Support</a>
+          <a href="/">Back to KT Forge</a>
+        </div>
+        <p class="footer-note">© 2025 KT Forge – HabitTracker iOS App</p>
+      </div>
+    </footer>
 
-<div class="popup-overlay" id="contactPopup" onclick="clickOutsideToClose(event)">
-<div class="popup-content">
-<button class="close-btn" onclick="closePopup()">×</button>
-<h3>Contact Support</h3>
-<form action="https://formspree.io/f/xyzjaded" id="supportForm" method="POST">
-<input name="email" placeholder="Your Email" required="" type="email"/>
-<input name="subject" placeholder="Subject" required="" type="text"/>
-<textarea name="message" placeholder="Your Message" required="" rows="5"></textarea>
-<button type="submit">Send</button>
-<div id="formStatus" style="text-align:center; margin-top: 1rem; font-weight: 500;"></div>
-</form>
-</div>
-</div>
+    <div
+      class="popup-overlay"
+      id="contactPopup"
+      onclick="clickOutsideToClose(event)"
+    >
+      <div class="popup-content">
+        <button class="close-btn" onclick="closePopup()">×</button>
+        <h3>Contact Support</h3>
+        <form
+          action="https://formspree.io/f/xyzjaded"
+          id="supportForm"
+          method="POST"
+        >
+          <input
+            name="email"
+            placeholder="Your Email"
+            required=""
+            type="email"
+          />
+          <input name="subject" placeholder="Subject" required="" type="text" />
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            required=""
+            rows="5"
+          ></textarea>
+          <button type="submit">Send</button>
+          <div
+            id="formStatus"
+            style="text-align: center; margin-top: 1rem; font-weight: 500"
+          ></div>
+        </form>
+      </div>
+    </div>
 
-<script>
-function openPopup() {
-  document.getElementById("contactPopup").style.display = "flex";
-  document.addEventListener("keydown", handleEscape);
-}
-function closePopup() {
-  document.getElementById("contactPopup").style.display = "none";
-  document.removeEventListener("keydown", handleEscape);
-}
-function handleEscape(e) {
-  if (e.key === "Escape") closePopup();
-}
-function clickOutsideToClose(e) {
-  if (e.target.id === "contactPopup") closePopup();
-}
-document.getElementById("supportForm").addEventListener("submit", async function(e) {
-  e.preventDefault();
-  const form = e.target;
-  const status = document.getElementById("formStatus");
-  const data = new FormData(form);
-  const res = await fetch(form.action, {
-    method: form.method,
-    body: data,
-    headers: { 'Accept': 'application/json' }
-  });
-  if (res.ok) {
-    status.style.color = "var(--success)";
-    status.textContent = "✅ Message sent successfully!";
-    form.reset();
-  } else {
-    status.style.color = "#ff6b6b";
-    status.textContent = "❌ Something went wrong. Please try again.";
-  }
-});
-</script>
-</body>
+    <script>
+      function openPopup() {
+        document.getElementById("contactPopup").style.display = "flex";
+        document.addEventListener("keydown", handleEscape);
+      }
+      function closePopup() {
+        document.getElementById("contactPopup").style.display = "none";
+        document.removeEventListener("keydown", handleEscape);
+      }
+      function handleEscape(e) {
+        if (e.key === "Escape") closePopup();
+      }
+      function clickOutsideToClose(e) {
+        if (e.target.id === "contactPopup") closePopup();
+      }
+      document
+        .getElementById("supportForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+          const form = e.target;
+          const status = document.getElementById("formStatus");
+          const data = new FormData(form);
+          const res = await fetch(form.action, {
+            method: form.method,
+            body: data,
+            headers: { Accept: "application/json" },
+          });
+          if (res.ok) {
+            status.style.color = "var(--success)";
+            status.textContent = "✅ Message sent successfully!";
+            form.reset();
+          } else {
+            status.style.color = "#ff6b6b";
+            status.textContent = "❌ Something went wrong. Please try again.";
+          }
+        });
+    </script>
+  </body>
 </html>
