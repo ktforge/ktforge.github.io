@@ -1,48 +1,26 @@
 <!DOCTYPE html>
+
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      KT Forge — Professional After Effects Scripts & Plugins (Enhanced)
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>
+      KT Forge — Professional After Effects Scripts &amp; Plugins (Enhanced)
     </title>
-<meta name="p:domain_verify" content="be286f44df4a3369294f488a104b0b10"/>
-    <!-- SEO & Social -->
-    <meta
-      name="description"
-      content="Professional After Effects scripts and workflow‑boosting plugins from KT Forge. Transform tedious tasks into one‑click solutions. Plus HabitTracker iOS app - now available on the App Store!"
-    />
-    <meta
-      name="keywords"
-      content="After Effects scripts, AE plugins, motion graphics tools, workflow automation, Layer Flow, HabitTracker, iOS app, App Store, habit tracking"
-    />
-    <meta
-      property="og:title"
-      content="KT Forge — Professional After Effects Tools & iOS Apps"
-    />
-    <meta
-      property="og:description"
-      content="Discover Layer Flow and upcoming audio‑sync plugins that super‑charge your creative workflow, plus HabitTracker iOS app - now live on the App Store!"
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://ktforge.dev" />
-
-    <!-- Fonts & Icons -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-      integrity="sha512-yH0M6B7n4TLVPBVFgbi3luiK+zd4TKxFBf/6VoyX5ulpSHiD/7QEi8k8x4D4Apq9uSA0KvyuAuy7u65arE2TWA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-
-    <!-- Analytics Consent CSS -->
-    <style>
+<meta content="be286f44df4a3369294f488a104b0b10" name="p:domain_verify"/>
+<!-- SEO & Social -->
+<meta content="Professional After Effects scripts and workflow‑boosting plugins from KT Forge. Transform tedious tasks into one‑click solutions. Plus HabitTracker iOS app - now available on the App Store!" name="description"/>
+<meta content="After Effects scripts, AE plugins, motion graphics tools, workflow automation, Layer Flow, HabitTracker, iOS app, App Store, habit tracking" name="keywords"/>
+<meta content="KT Forge — Professional After Effects Tools &amp; iOS Apps" property="og:title"/>
+<meta content="Discover Layer Flow and upcoming audio‑sync plugins that super‑charge your creative workflow, plus HabitTracker iOS app - now live on the App Store!" property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://ktforge.dev" property="og:url"/>
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-yH0M6B7n4TLVPBVFgbi3luiK+zd4TKxFBf/6VoyX5ulpSHiD/7QEi8k8x4D4Apq9uSA0KvyuAuy7u65arE2TWA==" referrerpolicy="no-referrer" rel="stylesheet"/>
+<!-- Analytics Consent CSS -->
+<style>
       #analytics-consent-banner {
         position: fixed;
         bottom: 0;
@@ -132,9 +110,8 @@
         }
       }
     </style>
-
-    <!-- Analytics Consent Mode Setup - MUST be first -->
-    <script>
+<!-- Analytics Consent Mode Setup - MUST be first -->
+<script>
       // Define dataLayer and the gtag function
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -148,13 +125,9 @@
         'ad_personalization': 'denied'
       });
     </script>
-
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-6GQ6CM7MJ5"
-    ></script>
-    <script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-6GQ6CM7MJ5"></script>
+<script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
@@ -162,9 +135,8 @@
       gtag("js", new Date());
       gtag("config", "G-6GQ6CM7MJ5");
     </script>
-
-    <!-- Analytics Consent Logic -->
-    <script>
+<!-- Analytics Consent Logic -->
+<script>
       // Check if user has already made a choice
       const analyticsConsent = localStorage.getItem('analyticsConsent');
       
@@ -221,9 +193,8 @@
         }
       }
     </script>
-
-    <!-- Main Site Styles -->
-    <style>
+<!-- Main Site Styles -->
+<style>
       /* ----------------------------------
        1. ROOT & RESET
     ---------------------------------- */
@@ -664,212 +635,220 @@
         }
       }
     </style>
-  </head>
-  <body>
-    <!-- Analytics Consent Banner (RIGHT AFTER BODY TAG) -->
-    <div id="analytics-consent-banner">
-      <div class="consent-container">
-        <div class="consent-text">
+</head>
+<body>
+<!-- Analytics Consent Banner (RIGHT AFTER BODY TAG) -->
+<div id="analytics-consent-banner">
+<div class="consent-container">
+<div class="consent-text">
           We use analytics cookies to understand how visitors interact with our website, helping us improve your experience. 
           No advertising cookies are used on this site.
           <a href="/privacy-policy" target="_blank">Learn more</a>
-        </div>
-        <div class="consent-buttons">
-          <button class="decline-btn" onclick="handleAnalyticsConsent(false)">Decline</button>
-          <button class="accept-btn" onclick="handleAnalyticsConsent(true)">Accept Analytics</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- HEADER -->
-    <header>
-      <nav>
-        <a href="#home" class="logo">KT&nbsp;Forge</a>
-        <ul class="nav-links">
-          <li><a href="#products">Products</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <!-- HERO -->
-    <section class="hero" id="home">
-      <div class="grid-bg"></div>
-      <div class="container">
-        <div class="code-window">
-          <div class="window-bar">
-            <span class="circle red"></span><span class="circle yellow"></span
-            ><span class="circle green"></span>
-          </div>
-          <div class="window-content">
-            <h1>
-              Layer Flow&nbsp;<span
-                style="font-size: 0.5em; vertical-align: middle"
-                >v1.0</span
-              >
-            </h1>
-            <p>
+</div>
+<div class="consent-buttons">
+<button class="decline-btn" onclick="handleAnalyticsConsent(false)">Decline</button>
+<button class="accept-btn" onclick="handleAnalyticsConsent(true)">Accept Analytics</button>
+</div>
+</div>
+</div>
+<!-- HEADER -->
+<header>
+<nav>
+<a class="logo" href="#home">KT Forge</a>
+<ul class="nav-links">
+<li><a href="#products">Products</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+</header>
+<!-- HERO -->
+<section class="hero" id="home">
+<div class="grid-bg"></div>
+<div class="container">
+<div class="code-window">
+<div class="window-bar">
+<span class="circle red"></span><span class="circle yellow"></span><span class="circle green"></span>
+</div>
+<div class="window-content">
+<h1>
+              Layer Flow <span style="font-size: 0.5em; vertical-align: middle">v1.0</span>
+</h1>
+<p>
               40+ functions that super‑charge your After Effects layer
               workflow.
             </p>
-            <a
-              href="https://www.etsy.com/listing/4310156467/layer-flow-40-after-effects-workflow?etsrc=sdt"
-              target="_blank"
-              class="cta-primary"
-              >Buy on Etsy</a
-            >
-          </div>
-        </div>
-      </div>
-    </section>
-
+<a class="cta-primary" href="https://www.etsy.com/listing/4310156467/layer-flow-40-after-effects-workflow?etsrc=sdt" target="_blank">Buy on Etsy</a>
+</div>
+</div>
+</div>
+</section>
 <!-- PRODUCTS -->
 <section class="products" id="products">
-  <div class="container">
-    <h2>Our Professional Tools</h2>
-    <div class="products-grid">
-
-      <!-- Layer Flow -->
-      <div class="product-card featured">
-        <span class="tag">Available Now</span>
-        <h3>Layer Flow v1.0</h3>
-        <p>
-          40+ smart utilities for copy‑paste, colour, keyframes & batch
+<div class="container">
+<h2>Our Professional Tools</h2>
+<div class="products-grid">
+<!-- Layer Flow -->
+<div class="product-card featured">
+<span class="tag">Available Now</span>
+<h3>Layer Flow v1.0</h3>
+<p>
+          40+ smart utilities for copy‑paste, colour, keyframes &amp; batch
           operations.
         </p>
-        <ul class="product-features">
-          <li>Smart Copy & Paste</li>
-          <li>Intelligent Pre‑Comp</li>
-          <li>Color & Label Management</li>
-          <li>Keyframe Automation</li>
-          <li>Batch Layer Creation</li>
-        </ul>
-        <div class="product-links">
-          <a
-            href="https://www.etsy.com/listing/4310156467/layer-flow-40-after-effects-workflow?etsrc=sdt"
-            target="_blank"
-            class="cta-button"
-            >Buy on Etsy</a
-          >
-          <a
-            href="https://layerflow.shop/"
-            target="_blank"
-            class="cta-secondary"
-            >Learn More</a
-          >
-        </div>
-      </div>
-
-      <!-- Habit Tracker: Pro -->
-      <div class="product-card featured">
-        <span class="tag live">Live on App Store</span>
-        <h3>Habit Tracker: Pro</h3>
-        <p>
+<ul class="product-features">
+<li>Smart Copy &amp; Paste</li>
+<li>Intelligent Pre‑Comp</li>
+<li>Color &amp; Label Management</li>
+<li>Keyframe Automation</li>
+<li>Batch Layer Creation</li>
+</ul>
+<div class="product-links">
+<a class="cta-button" href="https://www.etsy.com/listing/4310156467/layer-flow-40-after-effects-workflow?etsrc=sdt" target="_blank">Buy on Etsy</a>
+<a class="cta-secondary" href="https://layerflow.shop/" target="_blank">Learn More</a>
+</div>
+</div>
+<!-- Habit Tracker: Pro -->
+<div class="product-card featured">
+<span class="tag live">Live on App Store</span>
+<h3>Habit Tracker: Pro</h3>
+<p>
           iOS habit tracking app based on Jerry Seinfeld's "Don't Break the Chain" method. Build lasting habits with visual streak tracking and premium features.
         </p>
-        <ul class="product-features">
-          <li>Visual Chain Tracking</li>
-          <li>Multiple Habits Support</li>
-          <li>Streak Analytics</li>
-          <li>Premium Features</li>
-          <li>Local Data Storage</li>
-        </ul>
-        <div class="product-links">
-          <a href="https://apps.apple.com/app/id6747647440" target="_blank" class="cta-button">📱 Download Now</a>
-          <a href="habittracker.html" class="cta-secondary">View App Details</a>
-          <a href="habittracker-privacy.html" class="cta-secondary">Privacy Policy</a>
-          <a href="habittracker-eula.html" class="cta-secondary">Terms of Use</a>
-        </div>
-      </div>
-
-      <!-- BPM Audio Detector -->
-      <div class="product-card coming-soon">
-        <span class="tag">Coming Soon</span>
-        <h3>BPM Audio Detector</h3>
-        <p>
+<ul class="product-features">
+<li>Visual Chain Tracking</li>
+<li>Multiple Habits Support</li>
+<li>Streak Analytics</li>
+<li>Premium Features</li>
+<li>Local Data Storage</li>
+</ul>
+<div class="product-links">
+<a class="cta-button" href="https://apps.apple.com/app/id6747647440" target="_blank">📱 Download Now</a>
+<a class="cta-secondary" href="habittracker.html">View App Details</a>
+<a class="cta-secondary" href="habittracker-privacy.html">Privacy Policy</a>
+<a class="cta-secondary" href="habittracker-eula.html">Terms of Use</a>
+</div>
+</div>
+<!-- BPM Audio Detector -->
+<div class="product-card coming-soon">
+<span class="tag">Coming Soon</span>
+<h3>BPM Audio Detector</h3>
+<p>
           Automatic BPM detection and marker placement for perfect sync.
         </p>
-        <ul class="product-features">
-          <li>Automatic BPM Analysis</li>
-          <li>Smart Marker Grid</li>
-          <li>Tempo‑change Detection</li>
-        </ul>
-        <span class="cta-button disabled">Coming Soon</span>
-      </div>
-
-      <!-- Beat Detection Plugin -->
-      <div class="product-card coming-soon">
-        <span class="tag">In Development</span>
-        <h3>Beat Detection Plugin</h3>
-        <p>
-          C++ plugin for real‑time transient detection & sample‑accurate
+<ul class="product-features">
+<li>Automatic BPM Analysis</li>
+<li>Smart Marker Grid</li>
+<li>Tempo‑change Detection</li>
+</ul>
+<span class="cta-button disabled">Coming Soon</span>
+</div>
+<!-- Beat Detection Plugin -->
+<div class="product-card coming-soon">
+<span class="tag">In Development</span>
+<h3>Beat Detection Plugin</h3>
+<p>
+          C++ plugin for real‑time transient detection &amp; sample‑accurate
           markers.
         </p>
-        <ul class="product-features">
-          <li>Real‑time Peak Detection</li>
-          <li>Multi‑frequency Analysis</li>
-          <li>Sample‑accurate Timing</li>
-        </ul>
-        <span class="cta-button disabled">In Development</span>
-      </div>
-
-    </div>
-  </div>
+<ul class="product-features">
+<li>Real‑time Peak Detection</li>
+<li>Multi‑frequency Analysis</li>
+<li>Sample‑accurate Timing</li>
+</ul>
+<span class="cta-button disabled">In Development</span>
+</div>
+</div>
+</div>
 </section>
-
-
-    <!-- ABOUT -->
-    <section class="about" id="about">
-      <div class="container">
-        <h2>About KT Forge</h2>
-        <div class="about-content">
-          <p>
-            <strong>We're motion designers & developers</strong> who got tired
+<!-- ABOUT -->
+<section class="about" id="about">
+<div class="container">
+<h2>About KT Forge</h2>
+<div class="about-content">
+<p>
+<strong>We're motion designers &amp; developers</strong> who got tired
             of repetitive tasks interrupting the creative flow.
           </p>
-          <p>
+<p>
             Our mission is simple: <em>erase technical friction</em> so you
             can stay in the creative zone. Every tool is battle‑tested on real
             projects and refined for maximum speed.
           </p>
-        </div>
-      </div>
-    </section>
+</div>
+</div>
+</section>
+<!-- FOOTER -->
+<footer id="contact">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-section">
+<h3>Products</h3>
+<a href="https://www.etsy.com/listing/4310156467/layer-flow-40-after-effects-workflow?etsrc=sdt" target="_blank">Layer Flow v1.0</a><a href="#products">BPM Audio Detector</a><a href="#products">Beat Detection Plugin</a><a href="https://apps.apple.com/app/id6747647440" target="_blank">HabitTracker iOS App</a>
+</div>
+<div class="footer-section">
+<h3>Resources</h3>
+<a href="https://www.etsy.com/shop/KTForge" target="_blank">Etsy Store</a><a href="https://layerflow.shop/" target="_blank">Layer Flow Info</a><a href="https://youtu.be/TCu9JGneKEM" target="_blank">Product Demos</a>
+</div>
+<div class="footer-section">
+<h3>Support</h3>
+<a href="#" onclick="openPopup()">Contact Support</a>
+<a href="#products">View Products</a>
+<a href="privacy-policy.html">Privacy Policy</a>
+</div>
+</div>
+<p>© 2025 KT Forge – Crafted with ❤️ in Ohio</p>
+</div>
+</footer>
 
-    <!-- FOOTER -->
-    <footer id="contact">
-      <div class="container">
-        <div class="footer-grid">
-          <div class="footer-section">
-            <h3>Products</h3>
-            <a
-              href="https://www.etsy.com/listing/4310156467/layer-flow-40-after-effects-workflow?etsrc=sdt"
-              target="_blank"
-              >Layer Flow v1.0</a
-            ><a href="#products">BPM Audio Detector</a
-            ><a href="#products">Beat Detection Plugin</a
-            ><a href="https://apps.apple.com/app/id6747647440" target="_blank">HabitTracker iOS App</a>
-          </div>
-          <div class="footer-section">
-            <h3>Resources</h3>
-            <a href="https://www.etsy.com/shop/KTForge" target="_blank"
-              >Etsy Store</a
-            ><a href="https://layerflow.shop/" target="_blank"
-              >Layer Flow Info</a
-            ><a href="https://youtu.be/TCu9JGneKEM" target="_blank"
-              >Product Demos</a
-            >
-          </div>
-          <div class="footer-section">
-            <h3>Support</h3>
-            <a href="mailto:officialknifetastic@gmail.com">Email Support</a>
-            <a href="#products">View Products</a>
-            <a href="privacy-policy.html">Privacy Policy</a>
-          </div>
-        </div>
-        <p>© 2025 KT Forge – Crafted with ❤️ in Ohio</p>
-      </div>
-    </footer>
-  </body>
+<div class="popup-overlay" id="contactPopup" onclick="clickOutsideToClose(event)">
+<div class="popup-content">
+<button class="close-btn" onclick="closePopup()">×</button>
+<h3>Contact Support</h3>
+<form action="https://formspree.io/f/xyzjaded" id="supportForm" method="POST">
+<input name="email" placeholder="Your Email" required="" type="email"/>
+<input name="subject" placeholder="Subject" required="" type="text"/>
+<textarea name="message" placeholder="Your Message" required="" rows="5"></textarea>
+<button type="submit">Send</button>
+<div id="formStatus" style="text-align:center; margin-top: 1rem; font-weight: 500;"></div>
+</form>
+</div>
+</div>
+
+<script>
+function openPopup() {
+  document.getElementById("contactPopup").style.display = "flex";
+  document.addEventListener("keydown", handleEscape);
+}
+function closePopup() {
+  document.getElementById("contactPopup").style.display = "none";
+  document.removeEventListener("keydown", handleEscape);
+}
+function handleEscape(e) {
+  if (e.key === "Escape") closePopup();
+}
+function clickOutsideToClose(e) {
+  if (e.target.id === "contactPopup") closePopup();
+}
+document.getElementById("supportForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const status = document.getElementById("formStatus");
+  const data = new FormData(form);
+  const res = await fetch(form.action, {
+    method: form.method,
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  });
+  if (res.ok) {
+    status.style.color = "var(--success)";
+    status.textContent = "✅ Message sent successfully!";
+    form.reset();
+  } else {
+    status.style.color = "#ff6b6b";
+    status.textContent = "❌ Something went wrong. Please try again.";
+  }
+});
+</script>
+</body>
 </html>
