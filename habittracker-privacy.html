@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Habit Tracker: Pro | Privacy Policy | KT Forge</title>
+
+    <!-- SEO & Social -->
+    <meta
+      name="description"
+      content="Habit Tracker: Pro iOS app privacy policy. We respect your privacy - all data stays local on your device with no tracking or data collection."
+    />
+    <meta
+      name="keywords"
+      content="Habit Tracker: Pro privacy policy, iOS app privacy, data protection, local storage"
+    />
+    <meta
+      property="og:title"
+      content="Habit Tracker: Pro | Privacy Policy | KT Forge"
+    />
+    <meta
+      property="og:description"
+      content="Learn how Habit Tracker: Pro protects your privacy with local-only data storage and no tracking."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://ktforge.dev/habittracker-privacy.html"
+    />
+
+    <!-- Fonts & Icons -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-yH0M6B7n4TLVPBVFgbi3luiK+zd4TKxFBf/6VoyX5ulpSHiD/7QEi8k8x4D4Apq9uSA0KvyuAuy7u65arE2TWA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      /* ----------------------------------
+         1. ROOT & RESET
+      ---------------------------------- */
+      :root {
+        --bg: #0d1117;
+        --panel: #161b22;
+        --border: #21262d;
+        --text: #c9d1d9;
+        --accent: #58a6ff;
+        --accent-2: #8aebff;
+        --success: #3fb950;
+        --warning: #d29922;
+        --radius: 10px;
+        --shadow-lg: 0 25px 60px rgba(0, 0, 0, 0.35);
+        --app-green: #4caf50;
+      }
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Fira Code", monospace;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.75;
+        scroll-behavior: smooth;
+      }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+        cursor: pointer;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* ----------------------------------
+         2. HEADER
+      ---------------------------------- */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(22, 27, 34, 0.85);
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid var(--border);
+        z-index: 1000;
+      }
+      nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .logo {
+        font-weight: 600;
+        font-size: 1.6rem;
+        color: var(--accent-2);
+        letter-spacing: 0.5px;
+      }
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+      .nav-links a {
+        color: var(--text);
+        transition: opacity 0.25s;
+      }
+      .nav-links a:hover {
+        opacity: 0.8;
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      /* ----------------------------------
+         3. MAIN CONTENT
+      ---------------------------------- */
+      .main-content {
+        padding: 140px 0 80px;
+        min-height: 100vh;
+      }
+
+      .breadcrumb {
+        margin-bottom: 2rem;
+        padding: 1rem 0;
+      }
+      .breadcrumb a {
+        color: var(--accent);
+        font-size: 0.9rem;
+        transition: opacity 0.25s;
+      }
+      .breadcrumb a:hover {
+        opacity: 0.8;
+      }
+      .breadcrumb-separator {
+        margin: 0 0.5rem;
+        color: #8b949e;
+      }
+
+      .document-window {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-lg);
+        overflow: hidden;
+        animation: fadeUp 0.9s ease-out both;
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .window-bar {
+        height: 36px;
+        background: #0d1117;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0 14px;
+      }
+      .circle {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+      .red {
+        background: #ff5f56;
+      }
+      .yellow {
+        background: #ffbd2e;
+      }
+      .green {
+        background: #27c93f;
+      }
+      .window-title {
+        margin-left: auto;
+        font-size: 0.8rem;
+        color: #8b949e;
+      }
+
+      .document-content {
+        padding: 3rem 3rem 4rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .document-header {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .document-header h1 {
+        font-size: 2.5rem;
+        background: linear-gradient(90deg, var(--app-green), var(--accent));
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        margin-bottom: 1rem;
+      }
+
+      .last-updated {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .last-updated i {
+        color: var(--accent);
+        font-size: 1.1rem;
+      }
+      .last-updated strong {
+        color: #e6edf3;
+      }
+
+      .privacy-section {
+        margin-bottom: 2.5rem;
+      }
+      .privacy-section h2 {
+        color: var(--app-green);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .privacy-section h2 i {
+        font-size: 1.2rem;
+      }
+      .privacy-section p {
+        color: #8b949e;
+        margin-bottom: 1rem;
+        line-height: 1.7;
+      }
+      .privacy-section ul {
+        list-style: none;
+        margin: 1rem 0;
+        padding-left: 0;
+      }
+      .privacy-section li {
+        color: #8b949e;
+        margin: 0.75rem 0;
+        padding-left: 2rem;
+        position: relative;
+        line-height: 1.6;
+      }
+      .privacy-section li::before {
+        content: "\f00c";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        color: var(--success);
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      .highlight-box {
+        background: rgba(76, 175, 80, 0.1);
+        border: 1px solid rgba(76, 175, 80, 0.3);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin: 2rem 0;
+      }
+      .highlight-box h3 {
+        color: var(--app-green);
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .highlight-box p {
+        color: #c9d1d9;
+        margin-bottom: 0;
+      }
+
+      .contact-section {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 2rem;
+        margin-top: 3rem;
+        text-align: center;
+      }
+      .contact-section h3 {
+        color: var(--accent);
+        margin-bottom: 1rem;
+      }
+      .contact-section p {
+        color: #8b949e;
+        margin-bottom: 1rem;
+      }
+      .contact-email {
+        display: inline-block;
+        background: var(--accent);
+        color: #0d1117;
+        padding: 0.75rem 1.5rem;
+        border-radius: 6px;
+        font-weight: 600;
+        transition: transform 0.2s, opacity 0.2s;
+      }
+      .contact-email:hover {
+        transform: translateY(-2px);
+        opacity: 0.9;
+        text-decoration: none;
+      }
+
+      /* ----------------------------------
+         4. FOOTER
+      ---------------------------------- */
+      footer {
+        background: #010409;
+        border-top: 1px solid var(--border);
+        padding: 60px 0 40px;
+        text-align: center;
+      }
+      .footer-content {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+      }
+      .footer-content a {
+        color: #8b949e;
+        transition: color 0.25s;
+      }
+      .footer-content a:hover {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      .footer-note {
+        color: #57606a;
+        font-size: 0.9rem;
+      }
+
+      /* ----------------------------------
+         5. RESPONSIVE
+      ---------------------------------- */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+        .document-content {
+          padding: 2rem 1.5rem 3rem;
+        }
+        .document-header h1 {
+          font-size: 2rem;
+        }
+        .footer-content {
+          flex-direction: column;
+          gap: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <nav>
+        <a href="/" class="logo">KT&nbsp;Forge</a>
+        <ul class="nav-links">
+          <li><a href="/#products">Products</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+          <a href="/">KT Forge</a>
+          <span class="breadcrumb-separator">›</span>
+          <a href="habittracker.html">Habit Tracker: Pro</a>
+          <span class="breadcrumb-separator">›</span>
+          <span style="color: #8b949e">Privacy Policy</span>
+        </div>
+
+        <!-- Document Window -->
+        <div class="document-window">
+          <div class="window-bar">
+            <span class="circle red"></span>
+            <span class="circle yellow"></span>
+            <span class="circle green"></span>
+            <span class="window-title">privacy-policy.md</span>
+          </div>
+
+          <div class="document-content">
+            <div class="document-header">
+              <h1>Habit Tracker: Pro | Privacy Policy</h1>
+            </div>
+
+            <div class="last-updated">
+              <i class="fas fa-calendar-alt"></i>
+              <span><strong>Last updated:</strong> July 2025</span>
+            </div>
+
+            <div class="highlight-box">
+              <h3><i class="fas fa-shield-alt"></i> Privacy First Approach</h3>
+              <p>
+                Habit Tracker: Pro is designed with privacy as a core principle.
+                All your habit data stays on your device - we never collect,
+                access, or transmit any personal information.
+              </p>
+            </div>
+
+            <div class="privacy-section">
+              <h2><i class="fas fa-database"></i> Data We Collect</h2>
+              <p>
+                Habit Tracker: Pro stores all your habit data locally on your
+                device. We do not collect, access, or transmit any personal
+                information to our servers or third parties.
+              </p>
+            </div>
+
+            <div class="privacy-section">
+              <h2><i class="fas fa-mobile-alt"></i> Local Data Storage</h2>
+              <ul>
+                <li>
+                  All habit names, completion dates, and settings are stored
+                  securely on your device
+                </li>
+                <li>
+                  No data leaves your device or gets sent to external servers
+                </li>
+                <li>Your information is private and only accessible to you</li>
+                <li>Data is stored using iOS secure storage mechanisms</li>
+              </ul>
+            </div>
+
+            <div class="privacy-section">
+              <h2><i class="fas fa-credit-card"></i> In-App Purchases</h2>
+              <p>
+                We use Apple's In-App Purchase system for premium features.
+                Apple handles all payment processing according to their privacy
+                policy. We do not store or access your payment information.
+              </p>
+            </div>
+
+            <div class="privacy-section">
+              <h2><i class="fas fa-ban"></i> Third-Party Services</h2>
+              <p>
+                We do not use analytics, advertising, or tracking services. Your
+                usage of the app is completely private.
+              </p>
+            </div>
+
+            <div class="privacy-section">
+              <h2><i class="fas fa-trash-alt"></i> Data Deletion</h2>
+              <p>You can delete all app data by:</p>
+              <ul>
+                <li>Using the "Clear All Data" option in the app settings</li>
+                <li>Deleting the app from your device</li>
+              </ul>
+            </div>
+
+            <div class="privacy-section">
+              <h2><i class="fas fa-child"></i> Children's Privacy</h2>
+              <p>
+                Our app is suitable for all ages. Since we don't collect any
+                personal information, there are no special considerations for
+                children's data.
+              </p>
+            </div>
+
+            <div class="privacy-section">
+              <h2><i class="fas fa-edit"></i> Changes to This Policy</h2>
+              <p>
+                We may update this Privacy Policy from time to time. We will
+                notify you of any changes by posting the new Privacy Policy on
+                this page and updating the "Last updated" date.
+              </p>
+            </div>
+
+            <div class="contact-section">
+              <h3><i class="fas fa-envelope"></i> Questions or Concerns?</h3>
+              <p>
+                If you have questions about this Privacy Policy, we're here to
+                help:
+              </p>
+              <button
+                onclick="togglePopup()"
+                class="contact-email"
+                style="
+                  background: none;
+                  border: none;
+                  color: #0d1117;
+                  padding: 0.75rem 1.5rem;
+                  border-radius: 6px;
+                  font-weight: 600;
+                  cursor: pointer;
+                  background: var(--accent);
+                "
+              >
+                Contact Support
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <a href="habittracker.html">← Back to HabitTracker</a>
+          <a href="/">KT Forge Home</a>
+          <button
+            onclick="togglePopup()"
+            style="
+              background: none;
+              border: none;
+              color: var(--accent);
+              cursor: pointer;
+              font: inherit;
+              padding: 0;
+            "
+          >
+            Support
+          </button>
+        </div>
+        <p class="footer-note">
+          © 2025 KT Forge – Your privacy is our priority
+        </p>
+      </div>
+    </footer>
+    <div
+      id="contact-popup"
+      style="
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(4px);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <div
+        onclick="event.stopPropagation()"
+        style="
+          background: var(--panel);
+          border: 1px solid var(--border);
+          padding: 2rem;
+          max-width: 420px;
+          width: 90%;
+          border-radius: var(--radius);
+          position: relative;
+          box-shadow: var(--shadow-lg);
+          animation: fadeIn 0.3s ease-out;
+        "
+      >
+        <button
+          onclick="togglePopup()"
+          aria-label="Close"
+          style="
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.2rem;
+            cursor: pointer;
+          "
+        >
+          &times;
+        </button>
+        <h2
+          style="color: var(--accent); margin-bottom: 1rem; font-size: 1.5rem"
+        >
+          Contact Support
+        </h2>
+        <form
+          action="https://formspree.io/f/xyzjaded"
+          method="POST"
+          style="display: flex; flex-direction: column; gap: 1rem"
+        >
+          <input
+            type="email"
+            name="email"
+            placeholder="Your email"
+            required
+            style="
+              padding: 0.75rem;
+              border-radius: 6px;
+              border: 1px solid var(--border);
+              background: var(--bg);
+              color: var(--text);
+            "
+          />
+          <input
+            type="text"
+            name="subject"
+            placeholder="Subject"
+            required
+            style="
+              padding: 0.75rem;
+              border-radius: 6px;
+              border: 1px solid var(--border);
+              background: var(--bg);
+              color: var(--text);
+            "
+          />
+          <textarea
+            name="message"
+            placeholder="Your message"
+            required
+            rows="4"
+            style="
+              padding: 0.75rem;
+              border-radius: 6px;
+              border: 1px solid var(--border);
+              background: var(--bg);
+              color: var(--text);
+              resize: vertical;
+            "
+          ></textarea>
+          <button
+            type="submit"
+            style="
+              padding: 0.75rem;
+              border-radius: 6px;
+              background: var(--accent);
+              color: #0d1117;
+              font-weight: 600;
+              cursor: pointer;
+              border: none;
+            "
+          >
+            Send Message
+          </button>
+          <p
+            style="
+              color: var(--success);
+              font-size: 0.85rem;
+              text-align: center;
+            "
+            id="form-status"
+          ></p>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      function togglePopup() {
+        const popup = document.getElementById("contact-popup");
+        popup.style.display = popup.style.display === "flex" ? "none" : "flex";
+      }
+
+      window.addEventListener("click", (e) => {
+        const popup = document.getElementById("contact-popup");
+        if (e.target === popup) popup.style.display = "none";
+      });
+
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape")
+          document.getElementById("contact-popup").style.display = "none";
+      });
+    </script>
+
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    </style>
+  </body>
+</html>

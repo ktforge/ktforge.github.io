@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      KT Forge — Professional After Effects Scripts & Plugins (Enhanced)
+    </title>
+    <meta name="p:domain_verify" content="be286f44df4a3369294f488a104b0b10" />
+    <!-- SEO & Social -->
+    <meta
+      name="description"
+      content="Professional After Effects scripts and workflow‑boosting plugins from KT Forge. Transform tedious tasks into one‑click solutions. Plus HabitTracker iOS app - now available on the App Store!"
+    />
+    <meta
+      name="keywords"
+      content="After Effects scripts, AE plugins, motion graphics tools, workflow automation, Layer Flow, HabitTracker, iOS app, App Store, habit tracking"
+    />
+    <meta
+      property="og:title"
+      content="KT Forge — Professional After Effects Tools & iOS Apps"
+    />
+    <meta
+      property="og:description"
+      content="Discover Layer Flow and upcoming audio‑sync plugins that super‑charge your creative workflow, plus HabitTracker iOS app - now live on the App Store!"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ktforge.dev" />
+
+    <!-- Fonts & Icons -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-yH0M6B7n4TLVPBVFgbi3luiK+zd4TKxFBf/6VoyX5ulpSHiD/7QEi8k8x4D4Apq9uSA0KvyuAuy7u65arE2TWA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Analytics Consent CSS -->
+    <style>
+      #analytics-consent-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(22, 27, 34, 0.95);
+        color: #fff;
+        padding: 20px;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        z-index: 99999;
+        font-family: Arial, sans-serif;
+        display: none;
+        animation: slideUp 0.3s ease-out;
+      }
+
+      @keyframes slideUp {
+        from {
+          transform: translateY(100%);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
+
+      #analytics-consent-banner .consent-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      #analytics-consent-banner .consent-text {
+        flex: 1;
+        min-width: 300px;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      #analytics-consent-banner .consent-buttons {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      #analytics-consent-banner button {
+        padding: 10px 24px;
+        border: none;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      #analytics-consent-banner .accept-btn {
+        background: #58a6ff;
+        color: #0d1117;
+      }
+
+      #analytics-consent-banner .accept-btn:hover {
+        background: #4c8ed9;
+        transform: translateY(-1px);
+      }
+
+      #analytics-consent-banner .decline-btn {
+        background: #666;
+        color: white;
+      }
+
+      #analytics-consent-banner .decline-btn:hover {
+        background: #555;
+      }
+
+      #analytics-consent-banner a {
+        color: #58a6ff;
+        text-decoration: underline;
+      }
+
+      @media (max-width: 768px) {
+        #analytics-consent-banner .consent-container {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        #analytics-consent-banner .consent-buttons {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    </style>
+
+    <!-- Analytics Consent Mode Setup - MUST be first -->
+    <script>
+      // Define dataLayer and the gtag function
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      // Set default consent - ONLY analytics, no ad tracking
+      gtag("consent", "default", {
+        analytics_storage: "denied",
+        // We're explicitly setting ad storage to denied permanently
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+      });
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-6GQ6CM7MJ5"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-6GQ6CM7MJ5");
+    </script>
+
+    <!-- Analytics Consent Logic -->
+    <script>
+      // Check if user has already made a choice
+      const analyticsConsent = localStorage.getItem("analyticsConsent");
+
+      if (!analyticsConsent) {
+        // No previous choice, show banner
+        window.addEventListener("DOMContentLoaded", function () {
+          document.getElementById("analytics-consent-banner").style.display =
+            "block";
+        });
+      } else if (analyticsConsent === "granted") {
+        // User previously accepted analytics
+        gtag("consent", "update", {
+          analytics_storage: "granted",
+        });
+      }
+
+      // Handle user's consent choice
+      function handleAnalyticsConsent(accepted) {
+        const banner = document.getElementById("analytics-consent-banner");
+
+        if (accepted) {
+          // User accepted analytics only
+          gtag("consent", "update", {
+            analytics_storage: "granted",
+            // Ad consent remains denied
+          });
+          localStorage.setItem("analyticsConsent", "granted");
+          localStorage.setItem(
+            "analyticsConsentDate",
+            new Date().toISOString()
+          );
+        } else {
+          // User declined analytics
+          gtag("consent", "update", {
+            analytics_storage: "denied",
+          });
+          localStorage.setItem("analyticsConsent", "denied");
+          localStorage.setItem(
+            "analyticsConsentDate",
+            new Date().toISOString()
+          );
+        }
+
+        // Hide banner with animation
+        banner.style.animation = "slideUp 0.3s ease-out reverse";
+        setTimeout(() => {
+          banner.style.display = "none";
+        }, 300);
+      }
+
+      // Optional: Re-show consent banner after 365 days (1 year for analytics)
+      const consentDate = localStorage.getItem("analyticsConsentDate");
+      if (consentDate) {
+        const daysSinceConsent =
+          (new Date() - new Date(consentDate)) / (1000 * 60 * 60 * 24);
+        if (daysSinceConsent > 365) {
+          localStorage.removeItem("analyticsConsent");
+          localStorage.removeItem("analyticsConsentDate");
+          window.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("analytics-consent-banner").style.display =
+              "block";
+          });
+        }
+      }
+    </script>
+
+    <!-- Main Site Styles -->
+    <style>
+      /* ----------------------------------
+       1. ROOT & RESET
+    ---------------------------------- */
+      :root {
+        --bg: #0d1117;
+        --panel: #161b22;
+        --border: #21262d;
+        --text: #c9d1d9;
+        --accent: #58a6ff;
+        --accent-2: #8aebff;
+        --success: #3fb950;
+        --warning: #d29922;
+        --radius: 10px;
+        --shadow-lg: 0 25px 60px rgba(0, 0, 0, 0.35);
+      }
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Fira Code", monospace;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.75;
+        scroll-behavior: smooth;
+      }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      /* Ensure all button links are clickable */
+      a.cta-primary,
+      a.cta-button,
+      a.cta-secondary {
+        text-decoration: none !important;
+        cursor: pointer !important;
+        user-select: none;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* ----------------------------------
+       2. HEADER
+    ---------------------------------- */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(22, 27, 34, 0.85);
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid var(--border);
+        z-index: 1000;
+      }
+      nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .logo {
+        font-weight: 600;
+        font-size: 1.6rem;
+        color: var(--accent-2);
+        letter-spacing: 0.5px;
+      }
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+      .nav-links a {
+        color: var(--text);
+        transition: opacity 0.25s;
+      }
+      .nav-links a:hover {
+        opacity: 0.8;
+        color: var(--accent);
+      }
+
+      /* ----------------------------------
+       3. HERO (code‑window aesthetic, now with animated grid)
+    ---------------------------------- */
+      .hero {
+        position: relative;
+        padding: 140px 0 120px;
+        background: radial-gradient(
+          circle at top right,
+          rgba(88, 166, 255, 0.15) 0%,
+          transparent 60%
+        );
+        overflow: hidden;
+      }
+      .grid-bg {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image: linear-gradient(
+            0deg,
+            transparent 95%,
+            rgba(136, 153, 168, 0.05) 95%
+          ),
+          linear-gradient(90deg, transparent 95%, rgba(136, 153, 168, 0.05) 95%);
+        background-size: 40px 40px;
+        animation: gridMove 40s linear infinite;
+        z-index: 0;
+      }
+      @keyframes gridMove {
+        0% {
+          background-position: 0 0, 0 0;
+        }
+        100% {
+          background-position: 40px 0, 0 40px;
+        }
+      }
+
+      .code-window {
+        position: relative;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        max-width: 960px;
+        margin: 0 auto;
+        box-shadow: var(--shadow-lg);
+        overflow: hidden;
+        animation: fadeUp 0.9s ease-out both;
+        z-index: 5;
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .window-bar {
+        height: 36px;
+        background: #0d1117;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0 14px;
+      }
+      .circle {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+      .red {
+        background: #ff5f56;
+      }
+      .yellow {
+        background: #ffbd2e;
+      }
+      .green {
+        background: #27c93f;
+      }
+      .window-content {
+        text-align: center;
+        padding: 3rem 2rem 4rem;
+      }
+      .window-content h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        background: linear-gradient(
+          90deg,
+          var(--accent-2),
+          var(--accent) 50%,
+          #a685ff
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        margin-bottom: 1.2rem;
+        letter-spacing: 1px;
+      }
+      .window-content p {
+        font-size: 1.15rem;
+        color: #8b949e;
+        max-width: 640px;
+        margin: 0 auto 2.4rem;
+      }
+      .cta-primary {
+        display: inline-block;
+        padding: 15px 40px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: #0d1117;
+        font-weight: 600;
+        box-shadow: 0 10px 32px rgba(88, 166, 255, 0.35);
+        transition: transform 0.25s, box-shadow 0.25s;
+        position: relative;
+        z-index: 10;
+        cursor: pointer;
+      }
+      .cta-primary:hover {
+        transform: translateY(-4px) scale(1.03);
+        box-shadow: 0 16px 40px rgba(88, 166, 255, 0.45);
+      }
+
+      /* ----------------------------------
+       4. PRODUCTS GRID (refined)
+    ---------------------------------- */
+      .products {
+        padding: 120px 0;
+        background: var(--bg);
+      }
+      .products h2 {
+        text-align: center;
+        font-size: 2.6rem;
+        margin-bottom: 3rem;
+        background: linear-gradient(90deg, var(--accent), #a685ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2.2rem;
+        position: relative;
+        z-index: 1;
+      }
+      .product-card {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 2.2rem 1.8rem 2.8rem;
+        position: relative;
+        transition: transform 0.3s, box-shadow 0.3s;
+        z-index: 1;
+      }
+      .product-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 16px 44px rgba(0, 0, 0, 0.35);
+      }
+      .product-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: var(--radius);
+        padding: 2px;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          var(--accent-2),
+          transparent
+        );
+        -webkit-mask: linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .product-card:hover::before {
+        opacity: 1;
+      }
+      .tag {
+        position: absolute;
+        top: -12px;
+        right: 20px;
+        background: var(--success);
+        padding: 4px 14px;
+        border-radius: 14px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: #0d1117;
+      }
+      .tag.live {
+        background: var(--success);
+        animation: pulse 2s infinite;
+      }
+      .coming-soon .tag {
+        background: var(--warning);
+      }
+      @keyframes pulse {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.8;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      .product-card h3 {
+        font-size: 1.4rem;
+        color: #e6edf3;
+        margin-bottom: 0.75rem;
+      }
+      .product-card p {
+        font-size: 0.95rem;
+        color: #8b949e;
+        margin-bottom: 1.2rem;
+        min-height: 90px;
+      }
+      .product-features {
+        list-style: none;
+        margin-bottom: 1.5rem;
+      }
+      .product-features li {
+        font-size: 0.85rem;
+        color: #8b949e;
+        margin: 0.3rem 0;
+        position: relative;
+        padding-left: 18px;
+      }
+      .product-features li::before {
+        content: "\f00c";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        color: var(--success);
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      .product-links {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .cta-button,
+      .cta-secondary {
+        display: inline-block;
+        padding: 10px 26px;
+        border-radius: 6px;
+        font-weight: 600;
+        text-align: center;
+        position: relative;
+        z-index: 10;
+        cursor: pointer;
+      }
+      .cta-button {
+        background: var(--accent);
+        color: #0d1117;
+        transition: opacity 0.25s;
+      }
+      .cta-button:hover {
+        opacity: 0.85;
+      }
+      .cta-secondary {
+        border: 1px solid var(--accent);
+        color: var(--accent);
+        transition: background 0.25s, color 0.25s;
+      }
+      .cta-secondary:hover {
+        background: var(--accent);
+        color: #0d1117;
+      }
+      .cta-button.disabled {
+        background: var(--border);
+        color: #586069;
+        cursor: not-allowed;
+      }
+
+      /* ----------------------------------
+       AI EBOOK PLANNER ANIMATIONS (combining Layer Flow & Hbit tracker styles)
+    ---------------------------------- */
+      .ai-ebook-planner {
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Available Now tag with pulsing animation */
+      .tag.available-now {
+        background: linear-gradient(135deg, var(--success), #66bb6a);
+        animation: availablePulse 2s ease-in-out infinite;
+        box-shadow: 0 4px 15px rgba(63, 185, 80, 0.3);
+      }
+
+      @keyframes availablePulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+          box-shadow: 0 4px 15px rgba(63, 185, 80, 0.3);
+        }
+        50% {
+          opacity: 0.9;
+          transform: scale(1.05);
+          box-shadow: 0 6px 20px rgba(63, 185, 80, 0.5);
+        }
+      }
+
+      /* Product icon wrapper and floating animation */
+      .product-icon-wrapper {
+        text-align: center;
+        margin: 1rem 0 1.5rem;
+        position: relative;
+      }
+
+      .product-icon {
+        font-size: 3.5rem;
+        display: inline-block;
+        animation: iconFloat 4s ease-in-out infinite;
+        filter: drop-shadow(0 8px 16px rgba(88, 166, 255, 0.2));
+        transition: transform 0.3s ease;
+      }
+
+      @keyframes iconFloat {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(-1deg);
+        }
+        25% {
+          transform: translateY(-8px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-12px) rotate(1deg);
+        }
+        75% {
+          transform: translateY(-6px) rotate(0deg);
+        }
+      }
+
+      /* Enhanced hover effects for AI Ebook Planner */
+      .ai-ebook-planner:hover .product-icon {
+        transform: scale(1.1) rotate(5deg);
+        filter: drop-shadow(0 12px 24px rgba(88, 166, 255, 0.4));
+      }
+
+      .ai-ebook-planner:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      }
+
+      /* Glow effect on hover */
+      .ai-ebook-planner::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: var(--radius);
+        background: radial-gradient(
+          circle at center,
+          rgba(88, 166, 255, 0.1) 0%,
+          transparent 70%
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+      }
+
+      .ai-ebook-planner:hover::after {
+        opacity: 1;
+      }
+
+      /* Sparkle effect similar to Layer Flow */
+      .ai-ebook-planner .product-icon-wrapper::before {
+        content: "✨";
+        position: absolute;
+        font-size: 1.2rem;
+        top: 10%;
+        right: 20%;
+        animation: sparkle 3s ease-in-out infinite;
+        opacity: 0.7;
+        z-index: 1;
+      }
+
+      .ai-ebook-planner .product-icon-wrapper::after {
+        content: "💡";
+        position: absolute;
+        font-size: 1rem;
+        bottom: 15%;
+        left: 15%;
+        animation: sparkle 4s ease-in-out infinite reverse;
+        opacity: 0.6;
+        z-index: 1;
+      }
+
+      @keyframes sparkle {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+          opacity: 0.3;
+        }
+        25% {
+          transform: translateY(-5px) rotate(90deg);
+          opacity: 0.8;
+        }
+        50% {
+          transform: translateY(-8px) rotate(180deg);
+          opacity: 1;
+        }
+        75% {
+          transform: translateY(-3px) rotate(270deg);
+          opacity: 0.6;
+        }
+      }
+
+      /* Enhanced gradient border for AI Ebook Planner */
+      .ai-ebook-planner::before {
+        background: linear-gradient(
+          45deg,
+          var(--success),
+          var(--accent),
+          var(--accent-2),
+          var(--success)
+        );
+        background-size: 300% 300%;
+        animation: gradientShift 3s ease infinite;
+      }
+
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* ----------------------------------
+       5. ABOUT
+    ---------------------------------- */
+      .about {
+        background: var(--panel);
+        border-top: 1px solid var(--border);
+        padding: 120px 0;
+      }
+      .about h2 {
+        text-align: center;
+        font-size: 2.4rem;
+        color: var(--accent);
+        margin-bottom: 2.8rem;
+      }
+      .about-content {
+        max-width: 800px;
+        margin: 0 auto;
+        font-size: 1.05rem;
+        color: #8b949e;
+        line-height: 1.8;
+      }
+      .about-content p + p {
+        margin-top: 1.4rem;
+      }
+
+      /* ----------------------------------
+       6. FOOTER
+    ---------------------------------- */
+      footer {
+        background: #010409;
+        border-top: 1px solid var(--border);
+        padding: 80px 0 50px;
+        text-align: center;
+        font-size: 0.9rem;
+        color: #57606a;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2.8rem;
+      }
+      .footer-section h3 {
+        color: var(--text);
+        font-size: 1.05rem;
+        margin-bottom: 0.8rem;
+      }
+      .footer-section a {
+        display: block;
+        margin: 0.4rem 0;
+        color: #8b949e;
+      }
+      .footer-section a:hover {
+        color: var(--accent);
+      }
+
+      /* ----------------------------------
+       7. KEYFRAMES & MEDIA QUERIES
+    ---------------------------------- */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+        .product-links {
+          flex-direction: column;
+        }
+        .product-links a {
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Analytics Consent Banner (RIGHT AFTER BODY TAG) -->
+    <div id="analytics-consent-banner">
+      <div class="consent-container">
+        <div class="consent-text">
+          We use analytics cookies to understand how visitors interact with our
+          website, helping us improve your experience. No advertising cookies
+          are used on this site.
+          <a href="/privacy-policy" target="_blank">Learn more</a>
+        </div>
+        <div class="consent-buttons">
+          <button class="decline-btn" onclick="handleAnalyticsConsent(false)">
+            Decline
+          </button>
+          <button class="accept-btn" onclick="handleAnalyticsConsent(true)">
+            Accept Analytics
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+      <nav>
+        <a href="#home" class="logo">KT&nbsp;Forge</a>
+        <ul class="nav-links">
+          <li><a href="#products">Products</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="grid-bg"></div>
+      <div class="container">
+        <div class="code-window">
+          <div class="window-bar">
+            <span class="circle red"></span><span class="circle yellow"></span
+            ><span class="circle green"></span>
+          </div>
+          <div class="window-content">
+            <h1>
+              Layer Flow&nbsp;<span
+                style="font-size: 0.5em; vertical-align: middle"
+                >v1.0</span
+              >
+            </h1>
+            <p>
+              40+ functions that super‑charge your After Effects layer workflow.
+            </p>
+            <a
+              href="https://www.etsy.com/listing/4310156467/layer-flow-40-after-effects-workflow?etsrc=sdt"
+              target="_blank"
+              class="cta-primary"
+              >Buy on Etsy</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="products" id="products">
+      <div class="container">
+        <h2>Our Professional Tools</h2>
+        <div class="products-grid">
+          <!-- Layer Flow -->
+          <div class="product-card featured">
+            <span class="tag">Available Now</span>
+            <h3>Layer Flow v1.0</h3>
+            <p>
+              40+ smart utilities for copy‑paste, colour, keyframes & batch
+              operations.
+            </p>
+            <ul class="product-features">
+              <li>Smart Copy & Paste</li>
+              <li>Intelligent Pre‑Comp</li>
+              <li>Color & Label Management</li>
+              <li>Keyframe Automation</li>
+              <li>Batch Layer Creation</li>
+            </ul>
+            <div class="product-links">
+              <a
+                href="https://www.etsy.com/listing/4310156467/layer-flow-40-after-effects-workflow?etsrc=sdt"
+                target="_blank"
+                class="cta-button"
+                >Buy on Etsy</a
+              >
+              <a
+                href="https://layerflow.shop/"
+                target="_blank"
+                class="cta-secondary"
+                >Learn More</a
+              >
+            </div>
+          </div>
+
+          <!-- Habit Tracker: Pro -->
+          <div class="product-card featured">
+            <span class="tag live">Live on App Store</span>
+            <h3>Habit Tracker: Pro</h3>
+            <p>
+              iOS habit tracking app based on Jerry Seinfeld's "Don't Break the
+              Chain" method. Build lasting habits with visual streak tracking
+              and premium features.
+            </p>
+            <ul class="product-features">
+              <li>Visual Chain Tracking</li>
+              <li>Multiple Habits Support</li>
+              <li>Streak Analytics</li>
+              <li>Premium Features</li>
+              <li>Local Data Storage</li>
+            </ul>
+            <div class="product-links">
+              <a
+                href="https://apps.apple.com/app/id6747647440"
+                target="_blank"
+                class="cta-button"
+                >📱 Download Now</a
+              >
+              <a href="habittracker.html" class="cta-secondary"
+                >View App Details</a
+              >
+              <a href="habittracker-privacy.html" class="cta-secondary"
+                >Privacy Policy</a
+              >
+              <a href="habittracker-eula.html" class="cta-secondary"
+                >Terms of Use</a
+              >
+            </div>
+          </div>
+
+          <!-- AI Ebook Planner -->
+          <div class="product-card featured ai-ebook-planner">
+            <span class="tag available-now">Available Now</span>
+            <div class="product-icon-wrapper">
+              <span class="product-icon">📚</span>
+            </div>
+            <h3>AI Ebook Planner</h3>
+            <p>
+              Intelligent ebook planning and organization tool powered by AI.
+              Structure your content, plan chapters, and streamline your writing
+              process with smart assistance.
+            </p>
+            <ul class="product-features">
+              <li>AI-Powered Content Planning</li>
+              <li>Chapter Structure Generation</li>
+              <li>Research Organization</li>
+              <li>Writing Progress Tracking</li>
+              <li>Export & Publishing Tools</li>
+            </ul>
+            <div class="product-links">
+              <a
+                href="https://aiebookplanner.app"
+                target="_blank"
+                class="cta-button"
+                >🚀 Launch App</a
+              >
+              <a
+                href="https://aiebookplanner.app"
+                target="_blank"
+                class="cta-secondary"
+                >Learn More</a
+              >
+            </div>
+          </div>
+
+          <!-- BPM Audio Detector -->
+          <div class="product-card coming-soon">
+            <span class="tag">Coming Soon</span>
+            <h3>BPM Audio Detector</h3>
+            <p>
+              Automatic BPM detection and marker placement for perfect sync.
+            </p>
+            <ul class="product-features">
+              <li>Automatic BPM Analysis</li>
+              <li>Smart Marker Grid</li>
+              <li>Tempo‑change Detection</li>
+            </ul>
+            <span class="cta-button disabled">Coming Soon</span>
+          </div>
+
+          <!-- Beat Detection Plugin -->
+          <div class="product-card coming-soon">
+            <span class="tag">In Development</span>
+            <h3>Beat Detection Plugin</h3>
+            <p>
+              C++ plugin for real‑time transient detection & sample‑accurate
+              markers.
+            </p>
+            <ul class="product-features">
+              <li>Real‑time Peak Detection</li>
+              <li>Multi‑frequency Analysis</li>
+              <li>Sample‑accurate Timing</li>
+            </ul>
+            <span class="cta-button disabled">In Development</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <div class="container">
+        <h2>About KT Forge</h2>
+        <div class="about-content">
+          <p>
+            <strong>We're motion designers & developers</strong> who got tired
+            of repetitive tasks interrupting the creative flow.
+          </p>
+          <p>
+            Our mission is simple: <em>erase technical friction</em> so you can
+            stay in the creative zone. Every tool is battle‑tested on real
+            projects and refined for maximum speed.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-section">
+            <h3>Products</h3>
+            <a
+              href="https://www.etsy.com/listing/4310156467/layer-flow-40-after-effects-workflow?etsrc=sdt"
+              target="_blank"
+              >Layer Flow v1.0</a
+            ><a href="#products">BPM Audio Detector</a
+            ><a href="#products">Beat Detection Plugin</a
+            ><a href="https://apps.apple.com/app/id6747647440" target="_blank"
+              >HabitTracker iOS App</a
+            >
+          </div>
+          <div class="footer-section">
+            <h3>Resources</h3>
+            <a href="https://www.etsy.com/shop/KTForge" target="_blank"
+              >Etsy Store</a
+            ><a href="https://layerflow.shop/" target="_blank"
+              >Layer Flow Info</a
+            ><a href="https://youtu.be/TCu9JGneKEM" target="_blank"
+              >Product Demos</a
+            >
+          </div>
+          <div class="footer-section">
+            <h3>Support</h3>
+            <button
+              onclick="togglePopup()"
+              style="
+                background: none;
+                border: none;
+                color: var(--accent);
+                cursor: pointer;
+                font: inherit;
+                padding: 0;
+              "
+            >
+              Email Support
+            </button>
+            <a href="#products">View Products</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+          </div>
+        </div>
+        <p>© 2025 KT Forge – Crafted with ❤️ in Ohio</p>
+      </div>
+    </footer>
+    <div
+      id="contact-popup"
+      style="
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(4px);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <div
+        onclick="event.stopPropagation()"
+        style="
+          background: var(--panel);
+          border: 1px solid var(--border);
+          padding: 2rem;
+          max-width: 420px;
+          width: 90%;
+          border-radius: var(--radius);
+          position: relative;
+          box-shadow: var(--shadow-lg);
+          animation: fadeIn 0.3s ease-out;
+        "
+      >
+        <button
+          onclick="togglePopup()"
+          aria-label="Close"
+          style="
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.2rem;
+            cursor: pointer;
+          "
+        >
+          &times;
+        </button>
+        <h2
+          style="color: var(--accent); margin-bottom: 1rem; font-size: 1.5rem"
+        >
+          Contact Support
+        </h2>
+        <form
+          action="https://formspree.io/f/xyzjaded"
+          method="POST"
+          style="display: flex; flex-direction: column; gap: 1rem"
+        >
+          <input
+            type="email"
+            name="email"
+            placeholder="Your email"
+            required
+            style="
+              padding: 0.75rem;
+              border-radius: 6px;
+              border: 1px solid var(--border);
+              background: var(--bg);
+              color: var(--text);
+            "
+          />
+          <input
+            type="text"
+            name="subject"
+            placeholder="Subject"
+            required
+            style="
+              padding: 0.75rem;
+              border-radius: 6px;
+              border: 1px solid var(--border);
+              background: var(--bg);
+              color: var(--text);
+            "
+          />
+          <textarea
+            name="message"
+            placeholder="Your message"
+            required
+            rows="4"
+            style="
+              padding: 0.75rem;
+              border-radius: 6px;
+              border: 1px solid var(--border);
+              background: var(--bg);
+              color: var(--text);
+              resize: vertical;
+            "
+          ></textarea>
+          <button
+            type="submit"
+            style="
+              padding: 0.75rem;
+              border-radius: 6px;
+              background: var(--accent);
+              color: #0d1117;
+              font-weight: 600;
+              cursor: pointer;
+              border: none;
+            "
+          >
+            Send Message
+          </button>
+          <p
+            style="
+              color: var(--success);
+              font-size: 0.85rem;
+              text-align: center;
+            "
+            id="form-status"
+          ></p>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      function togglePopup() {
+        const popup = document.getElementById("contact-popup");
+        popup.style.display = popup.style.display === "flex" ? "none" : "flex";
+      }
+
+      window.addEventListener("click", (e) => {
+        const popup = document.getElementById("contact-popup");
+        if (e.target === popup) popup.style.display = "none";
+      });
+
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape")
+          document.getElementById("contact-popup").style.display = "none";
+      });
+    </script>
+
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    </style>
+  </body>
+</html>
