@@ -611,6 +611,165 @@
       }
 
       /* ----------------------------------
+       AI EBOOK PLANNER ANIMATIONS (combining Layer Flow & Hbit tracker styles)
+    ---------------------------------- */
+      .ai-ebook-planner {
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Available Now tag with pulsing animation */
+      .tag.available-now {
+        background: linear-gradient(135deg, var(--success), #66bb6a);
+        animation: availablePulse 2s ease-in-out infinite;
+        box-shadow: 0 4px 15px rgba(63, 185, 80, 0.3);
+      }
+
+      @keyframes availablePulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+          box-shadow: 0 4px 15px rgba(63, 185, 80, 0.3);
+        }
+        50% {
+          opacity: 0.9;
+          transform: scale(1.05);
+          box-shadow: 0 6px 20px rgba(63, 185, 80, 0.5);
+        }
+      }
+
+      /* Product icon wrapper and floating animation */
+      .product-icon-wrapper {
+        text-align: center;
+        margin: 1rem 0 1.5rem;
+        position: relative;
+      }
+
+      .product-icon {
+        font-size: 3.5rem;
+        display: inline-block;
+        animation: iconFloat 4s ease-in-out infinite;
+        filter: drop-shadow(0 8px 16px rgba(88, 166, 255, 0.2));
+        transition: transform 0.3s ease;
+      }
+
+      @keyframes iconFloat {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(-1deg);
+        }
+        25% {
+          transform: translateY(-8px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-12px) rotate(1deg);
+        }
+        75% {
+          transform: translateY(-6px) rotate(0deg);
+        }
+      }
+
+      /* Enhanced hover effects for AI Ebook Planner */
+      .ai-ebook-planner:hover .product-icon {
+        transform: scale(1.1) rotate(5deg);
+        filter: drop-shadow(0 12px 24px rgba(88, 166, 255, 0.4));
+      }
+
+      .ai-ebook-planner:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      }
+
+      /* Glow effect on hover */
+      .ai-ebook-planner::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: var(--radius);
+        background: radial-gradient(
+          circle at center,
+          rgba(88, 166, 255, 0.1) 0%,
+          transparent 70%
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+      }
+
+      .ai-ebook-planner:hover::after {
+        opacity: 1;
+      }
+
+      /* Sparkle effect similar to Layer Flow */
+      .ai-ebook-planner .product-icon-wrapper::before {
+        content: "✨";
+        position: absolute;
+        font-size: 1.2rem;
+        top: 10%;
+        right: 20%;
+        animation: sparkle 3s ease-in-out infinite;
+        opacity: 0.7;
+        z-index: 1;
+      }
+
+      .ai-ebook-planner .product-icon-wrapper::after {
+        content: "💡";
+        position: absolute;
+        font-size: 1rem;
+        bottom: 15%;
+        left: 15%;
+        animation: sparkle 4s ease-in-out infinite reverse;
+        opacity: 0.6;
+        z-index: 1;
+      }
+
+      @keyframes sparkle {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+          opacity: 0.3;
+        }
+        25% {
+          transform: translateY(-5px) rotate(90deg);
+          opacity: 0.8;
+        }
+        50% {
+          transform: translateY(-8px) rotate(180deg);
+          opacity: 1;
+        }
+        75% {
+          transform: translateY(-3px) rotate(270deg);
+          opacity: 0.6;
+        }
+      }
+
+      /* Enhanced gradient border for AI Ebook Planner */
+      .ai-ebook-planner::before {
+        background: linear-gradient(
+          45deg,
+          var(--success),
+          var(--accent),
+          var(--accent-2),
+          var(--success)
+        );
+        background-size: 300% 300%;
+        animation: gradientShift 3s ease infinite;
+      }
+
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* ----------------------------------
        5. ABOUT
     ---------------------------------- */
       .about {
@@ -812,6 +971,41 @@
               >
               <a href="habittracker-eula.html" class="cta-secondary"
                 >Terms of Use</a
+              >
+            </div>
+          </div>
+
+          <!-- AI Ebook Planner -->
+          <div class="product-card featured ai-ebook-planner">
+            <span class="tag available-now">Available Now</span>
+            <div class="product-icon-wrapper">
+              <span class="product-icon">📚</span>
+            </div>
+            <h3>AI Ebook Planner</h3>
+            <p>
+              Intelligent ebook planning and organization tool powered by AI.
+              Structure your content, plan chapters, and streamline your writing
+              process with smart assistance.
+            </p>
+            <ul class="product-features">
+              <li>AI-Powered Content Planning</li>
+              <li>Chapter Structure Generation</li>
+              <li>Research Organization</li>
+              <li>Writing Progress Tracking</li>
+              <li>Export & Publishing Tools</li>
+            </ul>
+            <div class="product-links">
+              <a
+                href="https://aiebookplanner.app"
+                target="_blank"
+                class="cta-button"
+                >🚀 Launch App</a
+              >
+              <a
+                href="https://aiebookplanner.app"
+                target="_blank"
+                class="cta-secondary"
+                >Learn More</a
               >
             </div>
           </div>
